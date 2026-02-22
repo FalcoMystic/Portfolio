@@ -1,0 +1,273 @@
+/* Fonts */
+
+@import url('./synonym.css');
+@import url('./chillax.css');
+
+/* Default Site Style */
+:root {
+  --text: #070e0b;
+  --background: #f4fbf8;
+  --primary: #3fca90;
+  --secondary: #95eac8;
+  --accent: #53e9ab;
+}
+
+/* Dark theme by user preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f1f8f5;
+    --background: #272727f3;
+    --primary: #35c086;
+    --secondary: #156a48;
+    --accent: #16ac6d;
+  }
+}
+
+/* JS Toggle */
+:root[data-theme="light"] {
+  --text: #070e0b;
+  --background: #f4fbf8;
+  --primary: #3fca90;
+  --secondary: #95eac8;
+  --accent: #53e9ab;
+}
+
+:root[data-theme="dark"] {
+  --text: #f1f8f5;
+  --background: #272727f3;
+  --primary: #35c086;
+  --secondary: #156a48;
+  --accent: #16ac6d;
+}
+
+/* Footer always at the bottom */
+
+.site {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* --- MOBILE FIRST --- */
+
+/* General */
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+main {
+  width: 300px;
+  margin: auto;
+}
+
+footer {
+  margin: 50px auto 30px;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* PC VERSION */
+/* header a:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+} */
+
+/* Header */
+
+nav {
+  padding: 1rem;
+  display: flex;
+  background-color: #272727f3;
+}
+
+.off-screen-menu {
+  background-color: #272727f3;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: -550px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+  transition: .3s ease;
+}
+
+.off-screen-menu.active {
+  right: 0;
+  z-index: 20;
+}
+
+.off-screen-menu li,
+.off-screen-menu.active li {
+  list-style: none;
+}
+
+.ham-menu {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  position: relative;
+
+  z-index: 21;
+}
+
+.ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: #16ac6d;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+  top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+  top: 75%;
+}
+
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+  top: 40%;
+  transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+/* Fonts */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Chillax-Semibold;
+}
+
+a {
+  font-family: Chillax-Medium;
+}
+
+p,
+li {
+  font-family: Synonym-Regular;
+}
+
+/* HOME */
+
+.presentation {
+  margin-bottom: 70px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: var(--accent) solid 2px;
+  background-color: var(--background);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* PROJECT */
+
+/* .container_project {} */
+
+.reduced-card_project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .maximized-card_project {} */
+
+/* ABOUT */
+
+.title_about {
+  margin-top: 75px;
+  text-align: center;
+}
+
+.picture {
+  display: flex;
+
+  width: 85%;
+  height: auto;
+  border-radius: 1.5rem;
+  border: #35c086 solid 4px;
+}
+
+.container_name {
+  position: relative;
+  text-align: center;
+
+  margin: 50px 0 100px;
+}
+
+.name {
+  position: absolute;
+  top: 225px;
+  left: 80px;
+
+  background-color: #16ac6d;
+  border: white 4px solid;
+  border-radius: 1.5rem;
+  padding: 15px;
+
+  color: white;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.about_desc {
+  margin-bottom: 20px;
+}
+
+.about_desc>li {
+  list-style: circle;
+}
+
+.hobbies_about {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+/* .home-top-art {
+} */
+
+/* .home-bottom-part {
+  display: flex;
+} */
+
+
+/* --- Tablet --- */
+
+/* --- PC --- */
