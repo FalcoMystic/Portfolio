@@ -1,0 +1,182 @@
+.main-container {
+    display: flex;
+    gap: 20px;
+    /* Espace entre les articles et l'aside */
+}
+
+.articles {
+    flex: 10;
+}
+
+.article {
+    color: white;
+    margin-bottom: 25px;
+    box-shadow: 2px 5px 20px 2px rgb(97, 96, 96);
+}
+
+.top_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
+    background-color: rgb(39, 39, 39);
+    border-right: 4px solid rgb(0, 0, 0);
+    border-left: 4px solid rgb(0, 0, 0);
+    border-top: 4px solid rgb(0, 0, 0);
+    box-shadow: 2px 5px 20px 2px rgb(97, 96, 96);
+}
+
+.top_info .info_container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top_info h3 {
+    font-size: 60px;
+    border-inline-start: 5px solid #d6cfcf;
+    padding-inline-start: 15px;
+}
+
+.voiture {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    transition: ease 0.5s;
+}
+
+.voiture:hover {
+    transform: scale(1.05);
+}
+
+.marque {
+    width: 100px;
+    height: auto;
+}
+
+.main_container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 25px;
+    background-color: rgb(39, 39, 39);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    border-right: 4px solid rgb(0, 0, 0);
+    border-left: 4px solid rgb(0, 0, 0);
+    margin-bottom: 100px;
+}
+
+.firstline h4,
+.secondline h4 {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 25px;
+    font-size: 20px;
+    background-color: rgb(29, 29, 29);
+    border-bottom: 5px solid white;
+    margin: auto;
+}
+
+.firstline {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.firstline,
+.secondline {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 40px;
+    background-color: rgb(68, 68, 68);
+}
+
+.firstline p,
+.secondline p {
+    text-align: justify;
+    padding: 25px;
+}
+
+.popularity,
+.price,
+.specs,
+.type {
+    border: 4px solid rgb(255, 255, 255);
+    background-color: rgb(95, 95, 95);
+    text-align: justify;
+    width: 100%;
+    height: 100%;
+    transition: ease-in-out 0.5s;
+}
+
+.popularity h4:hover,
+.popularity h4:hover,
+.price h4:hover,
+.specs h4:hover,
+.type h4:hover {
+    color: rgb(255, 0, 0);
+}
+
+.popularity p,
+.price p,
+.specs p,
+.type p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 30px;
+}
+
+.popularity:hover,
+.popularity:hover,
+.price:hover,
+.specs:hover,
+.type:hover {
+    transform: scale(1.1);
+    box-shadow: 10px 10px 20px 2px rgba(255, 255, 255, 0.452);
+    border-radius: 10px;
+}
+
+aside {
+    flex: 2;
+    color: white;
+    background-color: rgb(39, 39, 39);
+    margin-bottom: 100px;
+    margin-left: 20px;
+    padding: 20px;
+    box-shadow: 2px 5px 20px 2px rgb(97, 96, 96);
+    border: rgb(255, 0, 0) 3.5px solid;
+}
+
+aside p {    
+    position: sticky;
+    top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+aside ul {
+    position: sticky;
+    top: 300px;
+    line-height: 30px;
+}
+
+aside li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside a {
+    text-decoration: none;
+    color: white;
+}
+
+aside a:hover {
+    color: red;
+}

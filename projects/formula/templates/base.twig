@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{ titre_page }}</title>
+	{% block stylesheet %}
+	{% block head %}
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/reset.css">
+	{% endblock %}
+	{% endblock %}
+</head>
+
+<body>
+	<header>
+		<!--Si la variable = fr alors mettre nav fr-->
+		{% if lang == 'fr' %}
+		<div class="header_items">
+			<a href="index_fr.php">
+				<img class="logo" src="images/logo.webp" alt="">
+			</a>
+			<nav>
+				<div class="main_nav">
+					<a href="./index_fr.php">Accueil</a>
+
+					<div class="dropdown">
+						<a href="./clubs_fr.php">Clubs</a>
+						<div class="submenu">
+							{% for article in club %}
+							<li>
+								<a href="./clubs_fr.php#{{ article.nom }}">{{article.nom}}</a>
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="dropdown">
+						<a href="./circuits_fr.php">Circuits</a>
+						<div class="submenu">
+							{% for article in circuit %}
+							<li>
+								<a href="./circuits_fr.php#{{ article.nom }}">{{article.nom}}</a>
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="dropdown">
+						<a href="./voitures_fr.php">Voitures</a>
+						<div class="submenu">
+							{% for article in voiture %}
+							<li>
+								<a href="./voitures_fr.php#{{ article.nom }}">{{article.nom}}</a>
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+
+					<a href="./propos_fr.php">A Propos</a>
+					<a href="./contact_fr.php">Contact</a>
+					<a href="{{lang_en}}"><img src="images/us.png" alt="Drapeau du Royaume Uni"></a>
+				</div>
+			</nav>
+		</div>
+
+		<!--Sinon mettre nav en-->
+		{% else %}
+		<div class="header_items">
+			<a href="index_en.php">
+				<img class="logo" src="images/logo.webp" alt="">
+			</a>
+			<nav>
+				<div class="main_nav">
+					<a href="./index_en.php">Home</a>
+
+					<div class="dropdown">
+						<a href="./clubs_en.php">Clubs</a>
+						<div class="submenu">
+							{% for article in club %}
+							<li>
+								<a href="./clubs_en.php#{{ article.nom }}">{{article.nom}}</a>
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="dropdown">
+						<a href="./circuits_en.php">Tracks</a>
+						<div class="submenu">
+							{% for article in circuit %}
+							<li>
+								<a href="./circuits_en.php#{{ article.nom }}">{{article.nom}}</a>
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="dropdown">
+						<a href="./voitures_en.php">Cars</a>
+						<div class="submenu">
+							{% for article in voiture %}
+							<li>
+								<a href="./voitures_en.php#{{ article.nom }}">{{article.nom}}</a>
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+
+					<a href="./propos_en.php">About us</a>
+					<a href="./contact_en.php">Contact</a>
+					<a href="{{lang_fr}}"><img src="images/fr.png" alt="France Flag"></a>
+				</div>
+			</nav>
+		</div>
+
+		{% endif %}
+	</header>
+
+	<main>
+		{% block main %}
+		<!--Si la variable = fr alors mettre main fr-->
+		{% if lang == 'fr' %}
+		<section>
+			<h1 class="description">Bienvenue sur mon site dédié à la Formula Drift !</h1>
+			<div class="principe">
+				<h2>La Formula Drift : Qu'est ce que c'est ?</h2>
+				<p>La Formula Drift est une compétition de drift automobile où les pilotes s'affrontent en
+					effectuant
+					des
+					dérapages contrôlés sur des circuits spécialement conçus. Les juges évaluent les performances en
+					fonction de critères tels que l'angle, la vitesse et le style.</p>
+			</div>
+			<div class="origine">
+				<h2>Les Origines de la Formula Drift</h2>
+				<p>La Formula Drift a été fondée en 2003 aux États-Unis et s'est rapidement imposée comme l'une des
+					compétitions de drift les plus prestigieuses au monde. Inspirée par les courses de drift
+					japonaises,
+					elle attire des pilotes de renommée internationale.</p>
+			</div>
+			<div class="regles">
+				<h2>Les Règles de la Compétition</h2>
+				<p>Les pilotes doivent effectuer des dérapages contrôlés tout en maintenant une vitesse élevée et un
+					angle
+					de drift prononcé. Les juges attribuent des points en fonction de la précision, de la fluidité
+					et du
+					style des manœuvres. Les compétitions se déroulent en plusieurs manches, avec des éliminations
+					directes.
+				</p>
+			</div>
+			<div class="vehicules">
+				<h2>Les Véhicules Utilisés</h2>
+				<p>Les voitures de drift sont spécialement modifiées pour maximiser les performances en dérapage.
+					Elles
+					sont
+					équipées de moteurs puissants, de suspensions renforcées et de pneus adaptés. Les marques
+					populaires
+					incluent Nissan, Toyota, et Ford.</p>
+			</div>
+			<div class="impact">
+				<h2>L'Impact de la Formula Drift</h2>
+				<p>La Formula Drift a contribué à populariser le drift à travers le monde, inspirant de nombreux
+					passionnés
+					et influençant la culture automobile. Elle a également permis de développer des technologies et
+					des
+					techniques de conduite avancées.</p>
+			</div>
+		</section>
+		<section>
+
+			<article>
+				<div class="clubs">
+					<h2>Clubs</h2>
+					<p>Découvrez les clubs de drift les plus prestigieux, rejoignez une communauté de passionnés et
+						participez à des événements exclusifs.
+					</p>
+					<a href="./clubs_fr.php">
+						<img src="images/club.webp" alt="Clubs de Drift" class="img_bloc">
+					</a>
+				</div>
+			</article>
+			<article>
+				<div class="circuits">
+					<h2>Les Circuits</h2>
+					<p>Explorez les circuits de drift les plus excitants du monde. Chaque circuit offre des défis
+						uniques et des opportunités pour perfectionner votre technique. Découvrez les tracés
+						emblématiques et les événements majeurs qui s'y déroulent.</p>
+					<a href="./circuits_fr.php">
+						<img src="images/courses.webp" alt="Circuits de Drift" class="img_bloc">
+					</a>
+				</div>
+			</article>
+			<article>
+				<div class="voitures">
+					<h2>Les Voitures</h2>
+					<p>Découvrez les voitures de drift les plus performantes. Apprenez-en plus sur les modifications et
+						les réglages qui font de ces véhicules des machines de drift exceptionnelles. Comparez les
+						modèles, les marques et les innovations technologiques.
+					</p>
+					<a href="./voitures_fr.php">
+						<img src="images/voitures.webp" alt="Voitures de Drift" class="img_bloc">
+					</a>
+				</div>
+			</article>
+			<article>
+				<div class="propos_contact">
+					<h2>À Propos - Contact</h2>
+					<p>Apprenez-en plus sur notre mission et notre histoire. N'hésitez pas à nous contacter pour
+						toute question ou pour rejoindre notre communauté. Nous sommes là pour vous aider à vivre
+						votre passion du drift au maximum.</p>
+					<div class="p_c">
+						<a href="./propos.php">
+							<img src="images/info.webp" alt="En Savoir plus" class="img_bloc">
+						</a>
+						<a href="./contact.php">
+							<img src="images/contact.webp" alt="Nous Contacter" class="img_bloc">
+						</a>
+					</div>
+				</div>
+			</article>
+		</section>
+
+		<!--Sinon mettre main en-->
+		{% else %}
+		<section>
+			<h1 class="description">Welcome to my Formula Drift website!</h1>
+			<div class="principe">
+				<h2>The Formula Drift: What is it?</h2>
+				<p>The Formula Drift is a drift automobile competition where the pilots compete in
+					carrying out
+					of the
+					controlled slippages on specially designed circuits. Judges assess performance in
+					function of criteria such as angle, speed and style.</p>
+			</div>
+			<div class="origine">
+				<h2>The Origins of the Formula Drift</h2>
+				<p>The Formula Drift was founded in 2003 in the United States and quickly established itself as one of
+					the
+					most prestigious drift competitions in the world.Inspired by drift races
+					Japanese,
+					It attracts international renown pilots.</p>
+			</div>
+			<div class="regles">
+				<h2>Competition Rules</h2>
+				<p>Pilots must make controlled slippages while maintaining high speed and
+					corner
+					derift pronounced.The judges attribute points according to the precision, the fluidity
+					and
+					style of maneuvers. Competitions take place in several rounds, with eliminations
+					direct.
+				</p>
+			</div>
+			<div class="vehicules">
+				<h2>Vehicles Used</h2>
+				<p>Drift cars are specially modified to maximize slippage performance.
+					They
+					are
+					Equipped with powerful motors, reinforced suspensions and suitable tires. Brands
+					popular
+					Include Nissan, Toyota, and Ford.</p>
+			</div>
+			<div class="impact">
+				<h2>The impact of the Formula Drift</h2>
+				<p>The Formula Drift has helped popularize the drift around the world, inspiring many
+					enthusiast
+					and influencing automotive culture. It also made it possible to develop technologies and
+					of the
+					Advanced driving techniques.</p>
+			</div>
+		</section>
+		<section>
+
+			<article>
+				<div class="clubs">
+					<h2>Clubs</h2>
+					<p>Discover the most prestigious drift clubs, join a community of enthusiasts and
+						take part in exclusive events.
+					</p>
+					<a href="./clubs_en.php">
+						<img src="images/club.webp" alt="Clubs de Drift" class="img_bloc">
+					</a>
+				</div>
+			</article>
+			<article>
+				<div class="circuits">
+					<h2>Tracks</h2>
+					<p>Explore the most exciting drift circuits in the world. Each circuit offers challenges
+						unique and opportunities to perfect your technique. Discover the routes
+						emblematic and the major events taking place there.</p>
+					<a href="./circuits_en.php">
+						<img src="images/courses.webp" alt="Circuits de Drift" class="img_bloc">
+					</a>
+				</div>
+			</article>
+			<article>
+				<div class="voitures">
+					<h2>Cars</h2>
+					<p>Discover the most efficient drift cars. Learn more about changes and
+						The settings that make these vehicles exceptional drift machines. Compare them
+						models, brands and technological innovations.
+					</p>
+					<a href="./voitures_en.php">
+						<img src="images/voitures.webp" alt="Voitures de Drift" class="img_bloc">
+					</a>
+				</div>
+			</article>
+			<article>
+				<div class="propos_contact">
+					<h2>About Us - Contact</h2>
+					<p>Learn more about our mission and our history. Do not hesitate to contact us for
+						any question or to join our community. We are here to help you live
+						Your passion for drifting as much as possible.</p>
+					<div class="p_c">
+						<a href="./propos.php">
+							<img src="images/info.webp" alt="En Savoir plus" class="img_bloc">
+						</a>
+						<a href="./contact.php">
+							<img src="images/contact.webp" alt="Nous Contacter" class="img_bloc">
+						</a>
+					</div>
+				</div>
+			</article>
+		</section>
+		{% endif %}
+		{% endblock %}
+	</main>
+
+
+	<footer>
+		{% block footer %}
+		<!--Si la variable = fr alors mettre footer fr-->
+		{% if lang == 'fr' %}
+		<nav>
+			<div class="footer_nav">
+				<a href="./index_fr.php">Accueil</a>
+				<a href="./clubs_fr.php">Clubs</a>
+				<a href="./circuits_fr.php">Circuits</a>
+				<a href="./voitures_fr.php">Voitures</a>
+				<a href="./propos_fr.php">A Propos</a>
+				<a href="./contact_fr.php">Contact</a>
+				<p>&copy; Fait par Nguyen Luan</p>
+			</div>
+		</nav>
+		<!--Sinon mettre footer en-->
+		{% else %}
+		<nav>
+			<div class="footer_nav">
+				<a href="./index_en.php">Home</a>
+				<a href="./clubs_en.php">Clubs</a>
+				<a href="./circuits_en.php">Tracks</a>
+				<a href="./voitures_en.php">Cars</a>
+				<a href="./propos_en.php">About Us</a>
+				<a href="./contact_en.php">Contact</a>
+				<p>&copy; Made by Nguyen Luan</p>
+			</div>
+		</nav>
+		{% endif %}
+		{% endblock %}
+	</footer>
+</body>
+
+</html>

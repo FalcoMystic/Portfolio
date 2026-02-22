@@ -1,0 +1,85 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/reset.css">
+{% endblock %}
+
+{% block main %}
+{% if lang == 'fr' %}
+<div class="description">
+    <h1>Besoin d'aide ?</h1>
+    <p>
+        Remplissez le formulaire ci-dessous pour me contacter.
+    </p>
+</div>
+<form action="https://tp2.iha.unistra.fr/~nguyenl/reception.php" method="post">
+    <div class="main">
+        <div class="form">
+            <div class="name">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="surname">
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="mail">
+                <label for="email">Adresse mail :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="number">
+                <label for="tel">Numéro de téléphone :</label>
+                <input type="tel" id="tel" name="tel" pattern="^0[1-9]([ .-]?[0-9]{2}){4}$" required>
+            </div>
+            <div class="password">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="submit">Créer mon compte</button>
+        </div>
+    </div>
+</form>
+{% else %}
+<div class="description">
+    <h1>Need some help?</h1>
+    <p>
+        Fill in the form below to contact me.
+    </p>
+</div>
+<form action="https://tp2.iha.unistra.fr/~nguyenl/reception.php" method="post">
+    <div class="main">
+        <div class="form">
+            <div class="name">
+                <label for="nom">First Name :</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="surname">
+                <label for="prenom">Last Name:</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="mail">
+                <label for="email">mail address :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="number">
+                <label for="tel">Phone Number :</label>
+                <input type="tel" id="tel" name="tel" pattern="^0[1-9]([ .-]?[0-9]{2}){4}$" required>
+            </div>
+            <div class="password">
+                <label for="password">Password :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="submit">Create My Account</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

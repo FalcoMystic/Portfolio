@@ -1,0 +1,119 @@
+/* Style pour la section d'informations en haut */
+.top_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+/* Style pour les images dans la section d'informations en haut */
+.top_info img {
+    width: 150px;
+    height: auto;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+/* Style pour les titres dans la section d'informations en haut */
+.top_info h3 {
+    font-size: 65px;
+    color: rgb(0, 0, 0);
+    text-decoration: 3px solid white underline;
+    text-underline-offset: 15px;
+}
+
+/* Style pour les sections de première, deuxième et troisième ligne */
+.firstline,
+.secondline,
+.thirdline {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+/* Style pour les images dans les sections de première, deuxième et troisième ligne */
+.firstline img,
+.secondline img,
+.thirdline img {
+    display: flex;
+    border: 2px solid rgb(255, 0, 0);
+    box-shadow: 2px 5px 20px 2px rgb(0, 0, 0);
+    transition: 0.5s;
+}
+
+/* Effet de survol pour les images dans les sections de première, deuxième et troisième ligne */
+.firstline img:hover,
+.secondline img:hover,
+.thirdline img:hover {
+    transform: scale(1.1);
+    border: 4px solid rgb(255, 0, 0);
+}
+
+/* Style pour les paragraphes sans images dans les sections de première, deuxième et troisième ligne */
+.firstline p,
+.secondline p,
+.thirdline p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-size: 19px;
+    font-weight: 550;
+    line-height: 30px;
+    letter-spacing: 1.05px;
+    padding: 35px;
+    color: white;
+    background-color: rgb(39, 39, 39);
+    border: 4px solid rgb(4, 4, 4);
+    box-shadow: 2px 5px 20px 2px rgb(0, 0, 0);
+    /* - -webkit-text-fill-color : la couleur de remplissage du texte (propriété spécifique à WebKit)
+    - background-clip : la zone de découpe de l'arrière-plan
+    - -webkit-background-clip : la zone de découpe de l'arrière-plan (propriété spécifique à
+    WebKit) */
+    transition: color 0.5s, background 0.5s, -webkit-text-fill-color 0.5s, background-clip 0.5s, -webkit-background-clip 0.5s;
+}
+
+.firstline p:hover,
+.secondline p:hover,
+.thirdline p:hover {
+    background-color: white;
+    color: red;
+}
+
+
+
+/*  La media query incluse dans ce fichier est utilisée pour appliquer des styles pour les écrans plus larges, garantissant que la mise en page et le design sont réactifs et s'adaptent bien à différentes tailles d'écran. Cela aide à fournir une expérience de visualisation optimale pour les utilisateurs sur divers appareils, tels que les ordinateurs de bureau, les ordinateurs portables et les grandes tablettes. */
+@media (min-width: 768px) {
+
+    /* Changer la direction des sections de première, deuxième et troisième ligne en ligne */
+    .firstline,
+    .secondline,
+    .thirdline {
+        flex-direction: row;
+    }
+}
+
+/* Media query pour les écrans plus larges */
+@media (min-width: 768px) {
+
+    /* Ajuster la largeur des images dans les sections de première, deuxième et troisième ligne pour les écrans plus larges */
+    .firstline img,
+    .secondline img,
+    .thirdline img {
+        width: 50%;
+        height: auto;
+    }
+}
+
+/* Media query pour les écrans plus larges */
+@media (min-width: 768px) {
+
+    /* Ajuster la largeur des paragraphes dans les sections de première, deuxième et troisième ligne pour les écrans plus larges */
+    .firstline p,
+    .secondline p,
+    .thirdline p {
+        width: 50%;
+    }
+}

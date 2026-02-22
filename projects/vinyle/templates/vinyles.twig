@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="css/vinyles.css">
+{% endblock %}
+
+{% block banner %}{% endblock %}
+
+{% block main %}
+	<h1>Liste des Vinyles</h1>
+	{# <aside></aside> #}
+
+	{% for vinyle in vinyles %}
+		<div class="vinyles-photos">
+			<a href="detail_vinyle.php?id={{ vinyle.id_vinyle }}">
+				<img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}"/>
+				<div class="nom">
+					{{ vinyle.titre }}
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+{% endblock %}

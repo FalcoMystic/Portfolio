@@ -1,0 +1,24 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/genres.css">
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block main %}
+	<h1>Liste des Genres</h1>
+	
+	{% for genre in genres %}
+	<div class="genres-photos">
+	<a href="detail_genre.php?id={{ genre.id_genre }}">
+		<img src="img/genres/{{ genre.image }}" alt="{{ genre.nom }}" />
+		<div class="nom">
+			{{ genre.nom }}
+		</div>
+	</a>
+	</div>
+
+{% endfor %}
+{% endblock %}

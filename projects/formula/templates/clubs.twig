@@ -1,0 +1,39 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/club.css">
+{% endblock %}
+
+{% block title %}
+<title>{{titre_page}}</title>
+{% endblock %}
+
+{% block main %}
+<h1 class="description">{{description_page | title}}</h1>
+
+<div class="articles">
+    {% for article in club %}
+    <div class="article" id="{{ article.nom }}">
+        <div class="top_info">
+            <h3>{{article.nom}}</h3>
+            <img src="{{article.logo}}" alt="{{article.logo_alt}}">
+        </div>
+        <div class="banniere">
+            <img src="{{article.banniere}}" alt="{{article.banniere_alt}}">
+        </div>
+        <div class="bottom_info">
+            <p>{{article.histoire}}</p>
+        </div>
+        <blockquote>{{article.citation}}</blockquote>
+        <p class="pilote_text"> Voici quelques pilotes de l'équipe :</p>
+        <div class="pilotes">
+            {% for image in article.image_pilote %}
+            <img src="{{ image }}" alt="{{ article.image_alt[i] }}">
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

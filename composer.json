@@ -1,0 +1,16 @@
+{
+    "name": "luann/book",
+    "autoload": {
+        "psr-4": {
+            "Luann\\Book\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nguyen Luan"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.23"
+    }
+}

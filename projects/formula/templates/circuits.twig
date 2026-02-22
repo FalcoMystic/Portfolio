@@ -1,0 +1,38 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/circuits.css">
+{% endblock %}
+
+{% block title %}
+<title>{{titre_page}}</title>
+{% endblock %}
+
+{% block main %}
+<h1 class="description">{{description_page | title}}</h1>
+
+<div class="articles">
+    {% for article in circuit %}
+    <div class="article" id="{{ article.nom }}">
+        <div class="top_info">
+            <img src="{{article.drapeau}}" alt="{{article.logo_drapeau}}">
+            <h3>{{article.nom}}</h3>
+        </div>
+        <div class="firstline">
+            <img src="{{article.circuit[0]}}" alt="{{article.circuit_alt[0]}}">
+            <p>{{article.histoire1}}</p>
+        </div>
+        <div class="secondline">
+            <img src="{{article.circuit[1]}}" alt="{{article.circuit_alt[1]}}">
+            <p>{{article.histoire2}}</p>
+        </div>
+        <div class="thirdline">
+            <img src="{{article.circuit[2]}}" alt="{{article.circuit_alt[2]}}">
+            <p>{{article.histoire3}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

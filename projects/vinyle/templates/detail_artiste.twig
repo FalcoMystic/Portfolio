@@ -1,0 +1,9 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Détail de l'artiste</h1>
+	{% for artiste in artistes %}
+		<p>{{ artiste.nom }} </p>
+	{% endfor %}
+	<p><a href="artistes.php">Retour</a></p>
+{% endblock %}

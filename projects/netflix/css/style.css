@@ -1,0 +1,212 @@
+/* GENERAL */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #141414;
+    color: #F3F3F3;
+}
+
+/* HEADER */
+/* écrivez votre CSS en rapport avec votre HEADER ici */
+
+header {
+    padding: 20px 40px;
+    border-bottom: solid 1px #F3F3F3;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    display: none;
+}
+
+.main-nav {
+    display: flex;
+    list-style-type: none;
+    color: white;
+    gap: 20px;
+    padding: 5px 15px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-main_nav-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.sub-nav {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+    padding: 5px 15px;
+}
+
+.sub-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* MAIN CONTAINER */
+/* écrivez votre CSS en rapport avec votre MAIN CONTAINER ici */
+
+main {
+    width: 1240px;
+    margin: auto;
+    padding: 50px 0px;
+}
+
+section h2 {
+    padding-bottom: 10px;
+}
+
+section:not(:first-child) {
+    margin-top: 50px;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    font-size: 12px;
+    width: 295px;
+    transition: all 100ms;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.card h3 {
+    font-size: 14px;
+    padding-bottom: 4px;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    z-index: auto;
+}
+
+.card:hover .infos {
+    visibility: visible;
+    border-radius: 0px;
+}
+
+.card:hover img {
+    border-radius: 0px;
+}
+
+.infos {
+    background-color: #323232;
+    padding: 10px;
+    margin-top: -5px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    flex: 1;
+}
+
+.reco {
+    color: #19E45D;
+    margin-bottom: 6px;
+}
+
+.play-button {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* https://icons.getbootstrap.com/icons/play-fill/ */
+.play-button > i {
+    color: #323232;
+    font-size: 15px;
+    display: flex;
+}
+
+.video-bar {
+    margin-left: 10px;
+    height: 2px;
+    background-color: #E50914;
+    flex: 1;
+}
+
+.player {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* FOOTER */
+/* écrivez votre CSS en rapport avec votre FOOTER ici */
+
+footer {
+    width: 1080px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px 200px;
+}
+
+footer p {
+    font: 12px;
+    text-align: center;
+}
+
+.footer-menu-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.footer-menu ul {
+    list-style-type: none;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #323232;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.logos i {
+    color: white;
+}

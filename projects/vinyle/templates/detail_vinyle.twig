@@ -1,0 +1,38 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Détails du vinyle :</h1>
+	<div class="vinyle">
+		<h2>{{ vinyle.titre }}</h2>
+	</div>
+
+	<h2>Sons du vinyle :</h2>
+	<div class="sons">
+		{% for son in sons %}
+			<div class="son">
+				<h3>{{ son.titre }}</h3>
+				<p>Durée :
+					{{ son.duree }}</p>
+				<p>Nombre d'écoutes :
+					{{ son.nombre_ecoute }}</p>
+			</div>
+		{% endfor %}
+	</div>
+
+	<h2>Commentaires :</h2>
+	<div class="commentaires">
+		{% for commentaire in commentaires %}
+			<div class="commentaire">
+				<p>{{ commentaire.auteur }}
+					|
+					{{ commentaire.date }}
+					:</p>
+				<p>{{ commentaire.commentaire }}</p>
+			</div>
+		{% endfor %}
+	</div>
+
+	<p>
+		<a href="vinyles.php">Retour</a>
+	</p>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Detail du genre :</h1>
+		{% for genre in genres %}
+			<p>{{ genre.nom }} / Genre résumé à ajouter{{ genre.resume }} </p>
+		{% endfor %}
+		<p><a href="genres.php">Retour</a></p>
+{% endblock %}

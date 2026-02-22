@@ -1,0 +1,85 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/voitures.css">
+{% endblock %}
+
+{% block title %}
+<title>{{titre_page}}</title>
+{% endblock %}
+
+{% block main %}
+<h1 class="description">{{description_page | title}}</h1>
+
+<div class="main-container">
+    <div class="articles">
+        {% for article in voiture %}
+        <div class="article" id="{{ article.nom }}">
+            <div class="top_info">
+                <div class="info_container">
+                    <img class="marque" src="{{article.marque}}" alt="{{article.marque}}">
+                    <h3>{{article.nom}}</h3>
+                </div>
+                <img class="voiture" src="{{article.voiture}}" alt="{{article.voiture_alt}}">
+            </div>
+            <div class="main_container">
+                <div class="firstline">
+                    <div class="popularity">
+                        <h4>Popularité</h4>
+                        <p>{{article.popularite}}</p>
+                    </div>
+                    <div class="specs">
+                        <h4>Spécifications</h4>
+                        <p>{{article.specifications}}</p>
+                    </div>
+                </div>
+                <div class="secondline">
+                    <div class="price">
+                        <h4>Prix</h4>
+                        <p>{{article.prix}}</p>
+                    </div>
+                    <div class="type">
+                        <h4>Type</h4>
+                        <p>{{article.type}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if lang == 'fr' %}
+    <aside>
+        <p>Voici quelques liens en rapport avec les véhicules présentés :</p>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Toyota_AE86" target="_blank">Toyota AE86 - Wikipédia | EN</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Nissan_Silvia#S15" target="_blank">Nissan Silvia S15 -
+                    Wikipédia | EN</a>
+            </li>
+            <li><a href="https://www.automobile-sportive.com/guide/mazda/rx7fd.php" target="_blank">Mazda RX-7 FD -
+                    Automobile Sportive | FR</a></li>
+            <li><a href="https://www.rtrvehicles.com/blogs/news/rtr-announces-ford-factory-built-mustang-rtr"
+                    target="_blank">Ford Mustang RTR - SRTR Vehicles | EN</a></li>
+            <li><a href="https://fr.wikipedia.org/wiki/Nissan_370Z" target="_blank">Nissan 370Z - Wikipédia | FR</a></li>
+        </ul>
+    </aside>
+    {% else %}
+    <aside>
+        <p>Here are some links related to the vehicles presented:</p>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Toyota_AE86" target="_blank">Toyota AE86 - Wikipédia | EN</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Nissan_Silvia#S15" target="_blank">Nissan Silvia S15 -
+                    Wikipédia | EN</a>
+            </li>
+            <li><a href="https://www.automobile-sportive.com/guide/mazda/rx7fd.php" target="_blank">Mazda RX-7 FD -
+                    Automobile Sportive | EN</a></li>
+            <li><a href="https://www.rtrvehicles.com/blogs/news/rtr-announces-ford-factory-built-mustang-rtr"
+                    target="_blank">Ford Mustang RTR - SRTR Vehicles | FR</a></li>
+            <li><a href="https://fr.wikipedia.org/wiki/Nissan_370Z" target="_blank">Nissan 370Z - Wikipédia | EN</a></li>
+        </ul>
+    </aside>
+    {% endif %}
+</div>
+{% endblock %}
