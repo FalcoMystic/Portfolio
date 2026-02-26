@@ -26,4 +26,4 @@ $twig = new \Twig\Environment($loader);
 
 // Charger le template et passer la variable
 $template = $twig->load('detail-project.twig');
-echo $template->render(['project' => $selectedProject, 'tous_projects' => $projects]);
+echo $template->render(['project' => $selectedProject, 'projects' => $projects]);

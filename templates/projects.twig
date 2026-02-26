@@ -1,16 +1,26 @@
 {% extends 'index.twig' %}
-
 {% block main %}
-<h1>Mes Projets</h1>
-
-<div class="projects-list">
-	{% for projet in projets %}
-		<div class="project-card">
-			<h3>{{ projet.titre }}</h3>
-			<p class="description">{{ projet.description }}</p>
-			<p class="date">{{ projet.date }}</p>
-			<a href="projet.php?id={{ projet.id }}" class="btn-details">Voir les détails</a>
-		</div>
-	{% endfor %}
-</div>
+	<h1>
+		Mes Projets
+	</h1>
+	<div	class="list-projects">
+		{% for project in projects %}
+			<div	class="card-project">
+				<div	class="top-part-project">
+					<h3>
+						{{ project.titre }}
+					</h3>
+					<p	class="date-project">
+						{{ project.date }}
+					</p>
+				</div>
+				<p	class="desc-project">
+					{{ project.description }}
+				</p>
+				<a	href="project.php?id={{ project.id }}"	class="details-project">
+					En savoir plus
+				</a>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}

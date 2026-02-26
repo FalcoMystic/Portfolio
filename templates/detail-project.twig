@@ -1,33 +1,43 @@
 {% extends 'index.twig' %}
-
-{% block title %}{{ project.titre }}{% endblock %}
-
+{% block title %}
+    {{ project.titre }}
+{% endblock %}
 {% block main %}
-<h1>{{ project.titre }}</h1>
-
-<div class="projet-detail">
-    <div class="projet-info">
-        <p class="date">{{ project.date }}</p>
-        <p class="description">{{ project.description }}</p>
-        
-        <a href="{{ project.lien }}" target="_blank" class="btn-voir">Voir le projet</a>
+    <div class="projet-detail">
+        <div class="projet-info">
+            <div class="top-part-project">
+                <h1>
+                    {{ project.titre }}
+                </h1>
+                <p class="date">
+                    {{ project.date }}
+                </p>
+            </div>
+            <p class="description">
+                {{ project.description }}
+            </p>
+            <a href="{{ project.lien }}" target="_blank" class="project-lien">
+                Voir le projet
+            </a>
+        </div>
+        <aside class="autres-projects">
+            <h3>
+                Autres projets
+            </h3>
+            <ul>
+                {% for project in projects %}
+                    {% if project.id != selectedProject.id %}
+                        <li>
+                            <a href="project.php?id={{ project.id }}">
+                                {{ project.titre }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </aside>
     </div>
-
-    <aside class="autres-projets">
-        <h3>Autres projets</h3>
-        <ul>
-            {% for p in tous_projects %}
-                {% if p.id != project.id %}
-                    <li>
-                        <a href="project.php?id={{ p.id }}">
-                            {{ p.titre }}
-                        </a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    </aside>
-</div>
-
-<a href="projects.php" class="btn-retour">← Retour aux projets</a>
+    <a href="projects.php" class="btn-back-project">
+        ← Retour aux projets
+    </a>
 {% endblock %}
