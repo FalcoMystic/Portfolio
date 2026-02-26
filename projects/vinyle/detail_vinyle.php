@@ -19,13 +19,22 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
 // Requête pour récupérer les détails du vinyle
 $sql_vinyle = '
-    SELECT       
-        v.id_vinyle,
-        v.titre
-    FROM 
-        vinyles v
-    WHERE 
-        v.id_vinyle = :id';
+    SELECT 
+        vinyles.id_vinyle,
+        vinyles.titre,
+        vinyles.couverture,
+        vinyles.duree,
+        vinyles.prix,
+        vinyles.description,
+        artistes.id_artiste,
+        artistes.nom AS artiste,
+        genres.id_genre,
+        genres.nom AS genre
+    FROM vinyles
+    JOIN artistes ON vinyles.id_artiste = artistes.id_artiste
+    JOIN genres ON vinyles.id_genre = genres.id_genre
+    WHERE vinyles.id_vinyle = :id
+';
 $query_vinyle = $pdo->prepare($sql_vinyle);
 $query_vinyle->bindValue(':id', $id, PDO::PARAM_INT);
 $query_vinyle->execute();
@@ -54,7 +63,7 @@ $sql_sons = '
         s.id_son,
         s.titre,
         s.duree,
-        s.nombre_ecoute
+        s.popularite
     FROM 
         sons s
     WHERE 
@@ -65,9 +74,19 @@ $query_sons->bindValue(':id', $id, PDO::PARAM_INT);
 $query_sons->execute();
 $sons = $query_sons->fetchAll(PDO::FETCH_ASSOC);
 
-// Lancement du moteur Twig avec les données
+session_start();
+// ... (autres includes et code)
+$message = null;
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+
+// ... (récupération du vinyle, etc.)
 echo $twig->render('detail_vinyle.twig', [
     'vinyle' => $vinyle,
+    'sons' => $sons,
     'commentaires' => $commentaires,
-    'sons' => $sons
+    'message' => $message
 ]);
+

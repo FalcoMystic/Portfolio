@@ -8,17 +8,17 @@
 {% endblock %}
 
 {% block main %}
-	<h1>Liste des Genres</h1>
-	
+<h1>Liste des Genres</h1>
+<div class="wrapper">
 	{% for genre in genres %}
 	<div class="genres-photos">
-	<a href="detail_genre.php?id={{ genre.id_genre }}">
-		<img src="img/genres/{{ genre.image }}" alt="{{ genre.nom }}" />
-		<div class="nom">
-			{{ genre.nom }}
-		</div>
-	</a>
+		<a href="detail_genre.php?id={{ genre.id_genre }}">
+			<img src="img/genres/{{ genre.image }}" alt="{{ genre.nom }}" />
+			<div class="nom">
+				{{ genre.nom }}
+			</div>
+		</a>
 	</div>
-
-{% endfor %}
+	{% endfor %}
+</div>
 {% endblock %}

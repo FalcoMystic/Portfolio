@@ -1,9 +1,32 @@
 {% extends 'base.twig' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="css/detail-genre.css">
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
 {% block main %}
-	<h1>Detail du genre :</h1>
-		{% for genre in genres %}
-			<p>{{ genre.nom }} / Genre résumé à ajouter{{ genre.resume }} </p>
-		{% endfor %}
-		<p><a href="genres.php">Retour</a></p>
+    <h1>Détail du genre</h1>
+    <div class="detail-container">
+        <!-- Texte à gauche -->
+        <div class="detail-text">
+
+            {% for genre in genres %}
+            <h2>{{ genre.nom }}</h2>
+            <p>Description : {{ genre.description }}</p>
+            {% endfor %}
+        </div>
+
+        <!-- Vinyles à droite -->
+        <div class="vinyles-genre">
+            {% for vinyle in vinyles %}
+            <a href="detail_vinyle.php?id={{ vinyle.id_vinyle }}" class="vinyles-photos">
+                <img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}">
+                <div class="nom">{{ vinyle.titre }}</div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

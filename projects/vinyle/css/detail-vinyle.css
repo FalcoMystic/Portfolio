@@ -1,0 +1,258 @@
+/* --- VINYLE IMG + INFOS --- */
+.vinyle-detail {
+    display: flex;
+    gap: 60px;
+    margin: 100px 0;
+}
+
+.vinyle-detail img {
+    width: 320px;
+    height: 320px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px #0004;
+}
+
+.vinyle-info {
+    width: 100%;
+    background: #232323;
+    padding: 30px;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 8px 8px 1px #1a6d2e;
+    display: flex;
+    flex-direction: column;
+}
+
+h2+p {
+    text-decoration: none;
+    text-align: left;
+    font-size: 18px;
+    padding: 0;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.vinyle-info h1,
+h2,
+h3,
+p {
+    text-decoration: none;
+    text-align: left;
+    font-size: 18px;
+    padding: 0;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.vinyle-info a {
+    text-decoration: none;
+    color: #2bb14a;
+}
+
+.vinyle-info a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+
+/* --- BOUTON AJOUT PANIER --- */
+
+button[type="submit"] {
+    width: 100%;
+    background: #1e7e34;
+    color: #fff;
+    border: none;
+    padding: 14px 64px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+    background: #24913d;
+    transform: scale(1.03);
+}
+
+.btn-modifier {
+    display: block;
+    width: 100%;
+    background: #2a6db0;
+    color: #fff;
+    border: none;
+    padding: 14px 64px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-modifier:hover,
+.btn-modifier:focus {
+    background: #317eca;
+    transform: scale(1.03);
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* --- CONFIRMATION AJOUT PANIER --- */
+
+.confirmation-message {
+    background: #1e7e34;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* --- SONS --- */
+
+.sons-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 60px;
+    color: #fff;
+}
+
+.son-rectangle {
+    width: 45%;
+    background: #222;
+    border-radius: 10px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+    box-shadow: 0 2px 8px #0002;
+    transition: 0.4s ease;
+}
+
+.son-rectangle:hover {
+    background: #1e7e34;
+}
+
+.son-rectangle:hover .son-title{
+    text-decoration: underline 2px;
+    text-underline-offset: 6px;
+}
+
+.son-title {
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.son-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    min-width: 160px;
+}
+
+
+/* --- COMMENTAIRES --- */
+
+.commentaires {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.comment-rectangle {
+    display: flex;
+    background: #232323;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px #0002;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #fff;
+}
+
+.comment-date {
+    font-size: 0.95em;
+    color: #aaa;
+}
+
+.comment-text {
+    color: #eee;
+    margin-top: 5px;
+}
+
+.footer-bot p {
+    text-align: center;
+}
+
+@media (max-width: 960px) {
+    .vinyle-detail {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .vinyle-detail img {
+
+        width: 100%;
+        height: auto;
+    }
+
+    .son-rectangle {
+        width: 100%;
+    }
+}
+
+@media (max-width: 960px) {
+    .banner {
+        height: 0px;
+    }
+
+    .detail-text p {
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 600px) {
+    .detail-container {
+        padding: 10px 50px;
+    }
+}

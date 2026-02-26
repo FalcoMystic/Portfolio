@@ -1,23 +1,187 @@
 {% extends 'base.twig' %}
 
 {% block stylesheet %}
-	<link rel="stylesheet" href="css/vinyles.css">
+<link rel="stylesheet" href="css/vinyles.css">
 {% endblock %}
 
-{% block banner %}{% endblock %}
+{% block banner %}
+{% endblock %}
 
 {% block main %}
-	<h1>Liste des Vinyles</h1>
-	{# <aside></aside> #}
+<h1>Liste des Vinyles</h1>
 
-	{% for vinyle in vinyles %}
-		<div class="vinyles-photos">
+
+<!-- Boutons vues liste et vignette -->
+<div class="view-switch">
+	<button type="button" id="btn-grid" class="switch-btn grid-btn active" title="Vue vignette">
+		<i class="bi bi-grid-3x3-gap-fill"></i>
+	</button>
+	<button type="button" id="btn-list" class="switch-btn list-btn" title="Vue liste">
+		<i class="bi bi-list-ul"></i>
+	</button>
+</div>
+
+<button class="filters-toggle" aria-label="Afficher les filtres">&#x25B6;</button>
+<div class="content">
+	<!-- Filtres sur le côté gauche -->
+	<aside class="filters">
+		<form method="get" action="vinyles.php" id="filters-form">
+			<input type="hidden" name="vue" id="input-vue" value="grid">
+			<h2>Filtres</h2>
+
+			<!-- Filtres par genre -->
+			<h3>Genres</h3>
+			{% for genre in genres %}
+			<div>
+				<input type="checkbox" id="genre-{{ genre.id_genre }}" name="genres[]" value="{{ genre.id_genre }}" {%
+					if genre.id_genre in selected_genres %}checked{% endif %}
+					onchange="document.getElementById('filters-form').submit();">
+				<label for="genre-{{ genre.id_genre }}">{{ genre.nom }}</label>
+			</div>
+			{% endfor %}
+
+			<!-- Filtres par artiste -->
+			<h3>Artistes</h3>
+			{% for artiste in artistes %}
+			<div>
+				<input type="checkbox" id="artiste-{{ artiste.id_artiste }}" name="artistes[]"
+					value="{{ artiste.id_artiste }}" {% if artiste.id_artiste in selected_artistes %}checked{% endif %}
+					onchange="document.getElementById('filters-form').submit();">
+				<label for="artiste-{{ artiste.id_artiste }}">{{ artiste.nom }}</label>
+			</div>
+			{% endfor %}
+
+			<!-- Filtres par prix -->
+			<h3>Prix</h3>
+			<div>
+				<div>
+					<input type="checkbox" id="prix-25-30" name="prix[]" value="25-30" {% if '25-30' in selected_prix
+						%}checked{% endif %} onchange="document.getElementById('filters-form').submit();">
+					<label for="prix-25-30">25€ - 30€</label>
+				</div>
+				<div>
+					<input type="checkbox" id="prix-30-35" name="prix[]" value="30-35" {% if '30-35' in selected_prix
+						%}checked{% endif %} onchange="document.getElementById('filters-form').submit();">
+					<label for="prix-30-35">30€ - 35€</label>
+				</div>
+				<div>
+					<input type="checkbox" id="prix-35-40" name="prix[]" value="35-40" {% if '35-40' in selected_prix
+						%}checked{% endif %} onchange="document.getElementById('filters-form').submit();">
+					<label for="prix-35-40">35€ - 40€</label>
+				</div>
+				<div>
+					<input type="checkbox" id="prix-40-45" name="prix[]" value="40-45" {% if '40-45' in selected_prix
+						%}checked{% endif %} onchange="document.getElementById('filters-form').submit();">
+					<label for="prix-40-45">40€ - 45€</label>
+				</div>
+			</div>
+		</form>
+	</aside>
+
+
+	<!-- Contenu principal -->
+	<section class="vinyles-list grid-view" id="vinyles-list">
+		{% set vinyle_count = 0 %}
+		{% for vinyle in vinyles %}
+		{% set vinyle_count = vinyle_count + 1 %}
+		<div class="vinyles-part">
 			<a href="detail_vinyle.php?id={{ vinyle.id_vinyle }}">
-				<img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}"/>
-				<div class="nom">
-					{{ vinyle.titre }}
+				<div class="vinyles-photos">
+					<img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}" />
+					<div class="vinyles-info">
+						<div class="nom">{{ vinyle.titre }}</div>
+					</div>
 				</div>
 			</a>
 		</div>
-	{% endfor %}
+		{% endfor %}
+		{% if vinyle_count == 0 %}
+		<div class="aucun-vinyle-message"
+			style="width:100%;text-align:center;margin:40px 0;color:#fff;font-size:1.3rem;">
+			Aucun vinyle ne correspond à vos filtres.
+		</div>
+		{% endif %}
+	</section>
+</div>
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const btnGrid = document.getElementById('btn-grid');
+		const btnList = document.getElementById('btn-list');
+		const vinylesList = document.getElementById('vinyles-list');
+		const inputVue = document.getElementById('input-vue');
+		const urlParams = new URLSearchParams(window.location.search);
+
+		// Applique la vue selon l'URL au chargement
+		if (urlParams.get('vue') === 'list') {
+			vinylesList.classList.add('list-view');
+			vinylesList.classList.remove('grid-view');
+			btnList.classList.add('active');
+			btnGrid.classList.remove('active');
+			inputVue.value = 'list';
+		} else {
+			vinylesList.classList.add('grid-view');
+			vinylesList.classList.remove('list-view');
+			btnGrid.classList.add('active');
+			btnList.classList.remove('active');
+			inputVue.value = 'grid';
+		}
+
+		btnGrid.addEventListener('click', function () {
+			vinylesList.classList.add('grid-view');
+			vinylesList.classList.remove('list-view');
+			btnGrid.classList.add('active');
+			btnList.classList.remove('active');
+			inputVue.value = 'grid';
+		});
+
+		btnList.addEventListener('click', function () {
+			vinylesList.classList.add('list-view');
+			vinylesList.classList.remove('grid-view');
+			btnList.classList.add('active');
+			btnGrid.classList.remove('active');
+			inputVue.value = 'list';
+		});
+	});
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const toggleBtn = document.querySelector('.filters-toggle');
+		const filters = document.querySelector('.filters');
+
+		function openFilters() {
+			filters.classList.add('open');
+			toggleBtn.classList.add('open');
+			toggleBtn.innerHTML = '&#x25C0;'; // flèche vers la gauche
+			toggleBtn.setAttribute('aria-label', 'Cacher les filtres');
+		}
+		function closeFilters() {
+			filters.classList.remove('open');
+			toggleBtn.classList.remove('open');
+			toggleBtn.innerHTML = '&#x25B6;'; // flèche vers la droite
+			toggleBtn.setAttribute('aria-label', 'Afficher les filtres');
+		}
+
+		toggleBtn.addEventListener('click', function () {
+			if (filters.classList.contains('open')) {
+				closeFilters();
+			} else {
+				openFilters();
+			}
+		});
+
+		// Optionnel : refermer les filtres si on clique ailleurs
+		document.addEventListener('click', function (e) {
+			if (
+				filters.classList.contains('open') &&
+				!filters.contains(e.target) &&
+				e.target !== toggleBtn
+			) {
+				closeFilters();
+			}
+		});
+	});
+</script>
 {% endblock %}

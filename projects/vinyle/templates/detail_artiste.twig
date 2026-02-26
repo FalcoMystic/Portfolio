@@ -1,9 +1,36 @@
 {% extends 'base.twig' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="css/detail-artiste.css">
+{% endblock %}
+
+{% block banner %}
+<div class="banner">
+    {% for artiste in artistes %}
+    <div class="banner-image" style="background-image: url('img/banner/{{ artiste.banniere }}');"></div>
+    <h1 class="banner-text">{{ artiste.nom }}</h1>
+    {% endfor %}
+</div>
+{% endblock %}
+
 {% block main %}
-	<h1>Détail de l'artiste</h1>
-	{% for artiste in artistes %}
-		<p>{{ artiste.nom }} </p>
-	{% endfor %}
-	<p><a href="artistes.php">Retour</a></p>
+    <div class="detail-container">
+        <!-- Texte à gauche -->
+        <div class="detail-text">
+            <h1>Biographie</h1>
+            {% for artiste in artistes %}
+            <p>{{ artiste.biographie }}</p>
+            {% endfor %}
+        </div>
+
+        <!-- Vinyles à droite -->
+        <div class="vinyles-artiste">
+            {% for vinyle in vinyles %}
+            <a href="detail_vinyle.php?id={{ vinyle.id_vinyle }}" class="vinyles-photos">
+                <img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}">
+                <div class="nom">{{ vinyle.titre }}</div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

@@ -1,38 +1,88 @@
 {% extends 'base.twig' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="css/detail-vinyle.css">
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
 {% block main %}
-	<h1>Détails du vinyle :</h1>
-	<div class="vinyle">
-		<h2>{{ vinyle.titre }}</h2>
-	</div>
 
-	<h2>Sons du vinyle :</h2>
-	<div class="sons">
-		{% for son in sons %}
-			<div class="son">
-				<h3>{{ son.titre }}</h3>
-				<p>Durée :
-					{{ son.duree }}</p>
-				<p>Nombre d'écoutes :
-					{{ son.nombre_ecoute }}</p>
-			</div>
-		{% endfor %}
-	</div>
+{% if message %}
+<div class="confirmation-message">{{ message }}</div>
+{% endif %}
 
-	<h2>Commentaires :</h2>
-	<div class="commentaires">
-		{% for commentaire in commentaires %}
-			<div class="commentaire">
-				<p>{{ commentaire.auteur }}
-					|
-					{{ commentaire.date }}
-					:</p>
-				<p>{{ commentaire.commentaire }}</p>
-			</div>
-		{% endfor %}
-	</div>
+<div class="vinyle-detail">
+    <div>
+        <img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}" />
+        <form method="post" action="ajouter_panier.php">
+            <a href="modifier_vinyle.php?id={{ vinyle.id_vinyle }}" class="btn-modifier">Modifier</a>
+            <input type="hidden" name="id_vinyle" value="{{ vinyle.id_vinyle }}">
+            <button type="submit">Ajouter au panier</button>
+        </form>
+    </div>
+    <div class="vinyle-info">
+        <h2>Titre & Artiste :</h2>
+        <p>{{ vinyle.titre }} réalisé par
+            <a href="detail_artiste.php?id={{ vinyle.id_artiste }}">{{ vinyle.artiste }}</a>.
+        </p>
+        <h3>Genre :</h3>
+        <p>
+            <a href="detail_genre.php?id={{ vinyle.id_genre }}">{{ vinyle.genre }}</a>.
+        </p>
+        <h3>Durée :</h3>
+        <p>{{ vinyle.duree }}</p>
+        <h3>Prix :</h3>
+        <p>{{ vinyle.prix }} €</p>
+        <h3>Description :</h3>
+        <p>{{ vinyle.description }}</p>
+    </div>
+</div>
 
-	<p>
-		<a href="vinyles.php">Retour</a>
-	</p>
+<h2>Sons du vinyle</h2>
+<div class="sons-list">
+    {% for son in sons %}
+    <div class="son-rectangle">
+        <div class="son-title">{{ son.titre }}</div>
+        <div class="son-infos">
+            <div>Durée : {{ son.duree }}</div>
+            <div>Popularité : {{ son.popularite }} %</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Commentaires</h2>
+<div class="commentaires">
+    {% for commentaire in commentaires %}
+    <div class="comment-rectangle">
+        <div class="comment-content">
+            <div class="comment-header">
+                <span class="comment-author">{{ commentaire.auteur }}</span>
+                <span class="comment-date">{{ commentaire.date }}</span>
+            </div>
+            <div class="comment-text">{{ commentaire.commentaire }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Ajouter un commentaire</h2>
+<form method="post" action="ajouter_commentaire.php" class="form-commentaire">
+    <input type="hidden" name="id_vinyle" value="{{ vinyle.id_vinyle }}">
+    <div>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+    </div>
+    <div>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+    </div>
+    <div>
+        <label for="commentaire">Commentaire :</label>
+        <textarea id="commentaire" name="commentaire" rows="4" required></textarea>
+    </div>
+    <button type="submit">Envoyer</button>
+</form>
 {% endblock %}

@@ -70,7 +70,11 @@ main {
 }
 
 footer {
-  margin: 50px auto 30px;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  background-color: rgb(32, 32, 32);
 }
 
 a {
@@ -78,15 +82,10 @@ a {
   text-decoration: none;
 }
 
-/* PC VERSION */
-/* header a:hover {
-  text-decoration: underline;
-  text-underline-offset: 10px;
-} */
-
 /* Header */
 
-nav {
+.nav-phone {
+  margin-bottom: 50px;
   padding: 1rem;
   display: flex;
   background-color: #272727f3;
@@ -191,14 +190,25 @@ li {
 .container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.bottom-part-home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 100px;
   border: var(--accent) solid 2px;
   background-color: var(--background);
   border-radius: 15px;
   padding: 15px;
-  margin-bottom: 20px;
 }
 
 /* PROJECTS */
@@ -210,16 +220,19 @@ li {
   margin-top: 20px;
 }
 
-.card-project {
+.card-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--background);
   border: 3px solid var(--accent);
   border-radius: 15px;
-  padding: 10px;
+  padding: 25px;
 }
 
-.top-part-project {
+.top-part-projects {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .details-project {
@@ -228,8 +241,40 @@ li {
 
 /* PROJECT */
 
+.bottom-part-project {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .project-lien {
-  color: var(--accent);
+  display: none;
+
+  /* display: flex; */
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  background-color: var(--accent);
+  border: var(--accent) solid 2px;
+  border-radius: 15px;
+}
+
+.img-container-project {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.project-image {
+  border: var(--accent) solid 3px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 15px;
+  background-color: rgb(32, 32, 32);
 }
 
 .autres-projects {
@@ -250,9 +295,8 @@ li {
 
 /* ABOUT */
 
-.title_about {
+.title-about {
   margin-top: 75px;
-  text-align: center;
 }
 
 .picture {
@@ -264,17 +308,17 @@ li {
   border: #35c086 solid 4px;
 }
 
-.container_name {
+.container-name {
   position: relative;
   text-align: center;
 
   margin: 50px 0 100px;
 }
 
-.name {
+.name-about {
   position: absolute;
-  top: 225px;
-  left: 80px;
+  top: 275px;
+  left: 100px;
 
   background-color: #16ac6d;
   border: white 4px solid;
@@ -282,19 +326,19 @@ li {
   padding: 15px;
 
   color: white;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
 }
 
-.about_desc {
+.text-about p {
   margin-bottom: 20px;
 }
 
-.about_desc>li {
+.text-about>li {
   list-style: circle;
 }
 
-.hobbies_about {
+.text-about ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -322,6 +366,14 @@ li {
     margin: auto;
   }
 
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
   /* --- Phone Nav Tweaks --- */
 
   .nav-phone {
@@ -343,12 +395,14 @@ li {
     justify-content: center;
     background-color: rgb(32, 32, 32);
     padding: 40px 0;
+    margin-bottom: 50px;
     font-size: 2rem;
   }
 
   .nav-menu-pc ul {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 40px;
   }
 
@@ -359,5 +413,165 @@ li {
   .nav-menu-pc a:hover {
     color: var(--primary);
     transition: 0.4s ease;
+  }
+
+
+  /* HOME */
+
+  .presentation h1 {
+    font-size: 4rem;
+  }
+
+  .presentation h3 {
+    font-size: 2rem;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bottom-part-home {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .bottom-part-home a {
+    width: 100%;
+  }
+
+  .card {
+    padding: 0 30px 0;
+    min-height: 150px;
+    justify-content: center;
+  }
+
+  .card h2 {
+    font-size: 2rem;
+  }
+
+  .card p {
+    font-size: 1.5rem;
+  }
+
+  /* PROJECTS */
+
+  .title-projects-page {
+    font-size: 4rem;
+    margin: 50px 0;
+  }
+
+  .list-projects {
+    width: 100%;
+  }
+
+  .card-projects {
+    min-height: 150px;
+  }
+
+  .title-projects {
+    font-size: 2rem;
+  }
+
+  .bottom-part-projects {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .details-projects {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  /* PROJECT */
+
+  .project-lien {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    background-color: var(--accent);
+    border: var(--accent) solid 2px;
+    border-radius: 15px;
+  }
+
+  .img-container-project {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+  }
+
+  .project-image {
+    border: var(--accent) solid 3px;
+    width: 48%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    background-color: rgb(32, 32, 32);
+  }
+
+  /* ABOUT */
+
+  .container-about {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .title-about {
+    font-size: 4rem;
+    margin-top: 75px;
+  }
+
+  .picture {
+    display: flex;
+    width: 80%;
+    height: auto;
+    border-radius: 1.5rem;
+    border: #35c086 solid 4px;
+  }
+
+  .container-name {
+    position: relative;
+    text-align: center;
+    margin: 50px 0 100px;
+  }
+
+  .name-about {
+    position: absolute;
+    top: 580px;
+    left: 280px;
+
+    background-color: #16ac6d;
+    border: white 4px solid;
+    border-radius: 1.5rem;
+    padding: 15px;
+
+    color: white;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  .text-about {
+    font-size: 1.2rem;
+  }
+
+  .text-about p {
+    margin-bottom: 20px;
+  }
+
+  .text-about>li {
+    list-style: circle;
+  }
+
+  .text-about ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
   }
 }

@@ -1,0 +1,64 @@
+/* Couleurs principales */
+body {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    color: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-container {
+    background: rgba(34, 34, 34, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    padding: 48px 32px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.error-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ff4c4c;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.error-message {
+    font-size: 1.3rem;
+    margin-bottom: 32px;
+    color: #fff;
+}
+
+.error-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background: #ff4c4c;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.error-btn:hover {
+    background: #d32f2f;
+}
+
+@media (max-width: 600px) {
+    .error-container {
+        padding: 32px 10px;
+        max-width: 95vw;
+    }
+
+    .error-title {
+        font-size: 2.5rem;
+    }
+}

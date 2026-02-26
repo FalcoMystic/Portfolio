@@ -1,60 +1,325 @@
+/* === TITRE === */
+img {
+    width: 280px;
+    height: 280px;
+}
+
 h1 {
-	width: 100%;
-	text-align: center;
-	margin: 100px 0;
+    text-align: center;
+    color: #fff;
+    margin-top: 60px;
+    margin-bottom: 80px;
 }
 
 main {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 20px;
+    width: auto;
 }
 
-.vinyles-photos {
-	position: relative;
-	width: 270px;
-	height: 270px;
-	overflow: hidden;
-	cursor: pointer;
+/* === CONTENU PRINCIPAL === */
+.filters-toggle {
+    visibility: hidden;
 }
 
-.vinyles-photos img {
-	width: 100%;
-	height: 100%;
-
-	object-fit: cover;
-	position: absolute;
-
-	transition: filter 0.25s ease-in-out;
+.content {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+    /* plus d’espace résiduel ajouté */
+    gap: 40px;
+    width: 100%;
 }
 
-.vinyles-photos:hover img {
-	filter: brightness(0.4) blur(3px);
-}
-
+/* === LISTE / GRILLE === */
 .nom {
-	position: relative;
-	z-index: 10;
-	font-size: 2rem;
-	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	height: 100%;
-	pointer-events: none;
-	padding: 10px;
+    font-size: 1.25rem;
+    background-color: #232323;
 }
 
-.vinyles-photos:hover .nom {
-	opacity: 1;
-	pointer-events: auto;
+/* Vue grille */
+.vinyles-list.grid-view {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-a {
-	color: white;
-	text-decoration: none;
+/* --- Correctifs largeur pleine --- */
+.vinyles-list {
+    /* occupe tout l’espace dispo à droite des filtres */
+    flex: 1 1 0;
+    width: 100%;
+}
+
+.vinyles-list.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.vinyles-list.list-view .vinyles-part {
+    width: 100%;
+}
+
+.vinyles-list.list-view .vinyles-part>a {
+    display: block;
+    width: 100%;
+}
+
+/* Bloc image + texte */
+.vinyles-list.list-view .vinyles-photos {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #232323;
+    border-radius: 8px;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+.vinyles-list.list-view .vinyles-photos img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+}
+
+.vinyles-list.list-view .vinyles-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    min-width: 0;
+}
+
+.vinyles-list.list-view .vinyles-info .nom {
+    margin: 0;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    word-break: break-word;
+}
+
+/* Hover */
+.vinyles-list.list-view .vinyles-photos:hover {
+    background-color: rgb(15, 159, 12);
+}
+
+.vinyles-list.list-view .vinyles-photos:hover .nom {
+    background-color: rgb(15, 159, 12);
+}
+
+/* === FILTRES === */
+.filters {
+    display: flex;
+    justify-content: center;
+    min-width: 350px;
+    width: 10%;
+    background: #232323;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 8px 8px 1px #1a6d2e;
+}
+
+.filters h2,
+.filters h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.filters div {
+    margin-bottom: 10px;
+}
+
+.filters div:last-child {
+    margin-bottom: 50px;
+}
+
+.filters label {
+    margin-left: 5px;
+    color: #fff;
+}
+
+/* --- Boutons switch --- */
+.view-switch {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.switch-btn {
+    background: #232323;
+    border: none;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: background .2s;
+    display: flex;
+    align-items: center;
+}
+
+.switch-btn.active,
+.switch-btn:hover {
+    background: #1f8f03;
+    color: #fff;
+}
+
+/* Reset Filters Button */
+.filters-reset {
+    display: block;
+    width: 90%;
+    margin: 40px auto 10px;
+    padding: 12px 0;
+    background: #ff4c4c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.filters-reset:hover {
+    background: #d32f2f;
+}
+
+/* === RESPONSIVE === */
+@media (max-width:1220px) {
+    .vinyles-list.list-view .vinyles-photos img {
+        width: 140px;
+        height: 140px;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .vinyles-list.list-view .vinyles-info .nom {
+        font-size: 1.25em;
+    }
+}
+
+
+@media (max-width:960px) {
+    img {
+        width: 320px;
+        height: 320px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    .nom {
+        font-size: 1em;
+    }
+
+    .filters-toggle {
+        visibility: visible;
+    }
+
+    .filters {
+        position: fixed;
+        top: 0;
+        left: -320px;
+        width: 300px;
+        min-width: 0;
+        height: 100vh;
+        background: #232323;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 8px 0px 1px #1a6d2e;
+        z-index: 9;
+        transition: left .3s cubic-bezier(.4, 0, .2, 1);
+        display: block;
+        overflow-y: auto;
+    }
+
+
+    .filters.open {
+        left: 0;
+    }
+
+    .filters-toggle {
+        position: fixed;
+        top: 50%;
+        left: 10px;
+        z-index: 9;
+        background: #232323;
+        color: #fff;
+        border: none;
+        border-radius: 0 6px 6px 0;
+        font-size: 2.2em;
+        padding: 6px 12px 6px 8px;
+        cursor: pointer;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, .15);
+        transition: background .2s;
+    }
+
+    .filters-toggle.open {
+        left: 310px;
+        background: #1f8f03;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    /* largeur pleine même sur tablette */
+    .vinyles-list.list-view .vinyles-photos {
+        width: 100%;
+    }
+}
+
+@media (max-width:600px) {
+    img {
+        width: 380px;
+        height: 380px;
+    }
+
+    .nom {
+        font-size: 1.25em;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .filters {
+        width: 90vw;
+        left: -92vw;
+        border-radius: 0 12px 12px 0;
+        padding: 20px 10px;
+    }
+
+    .filters.open {
+        left: 0;
+    }
+
+    .filters-toggle.open {
+        left: 90vw;
+    }
+
+    /* largeur pleine en mobile */
+    .vinyles-list.list-view .vinyles-photos {
+        width: 100%;
+    }
+
+    /* image plus petite en mobile */
+    .vinyles-list.list-view .vinyles-photos img {
+        width: 140px;
+        height: 140px;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .vinyles-list.list-view .vinyles-info .nom {
+        font-size: 1.25em;
+    }
 }

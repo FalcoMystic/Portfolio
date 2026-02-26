@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/confirmation.css">
+{% endblock %}
+
+{% block main %}
+<div class="confirmation-container">
+    <h1>Confirmation de commande</h1>
+    <p>{{ message }}</p>
+    <a href="index.php" class="btn-retour">Retour à l'accueil</a>
+</div>
+{% endblock %}

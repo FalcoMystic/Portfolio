@@ -1,0 +1,78 @@
+.propos-container {
+    color: white;
+    margin: 0 150px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.photo {
+    height: 965px;
+    max-width: 530px;
+    border-radius: 8px;
+}
+
+.propos-texte {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    min-height: 400px;
+    min-width: 423px;
+
+    background: #232323;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 8px 8px 1px #1a6d2e;
+}
+
+.propos-texte h1,
+.propos-texte p {
+    text-decoration: none;
+    text-align: justify;
+    font-size: 16px;
+    padding: 0;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.propos-texte h1 {
+    text-decoration: underline 3px;
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.propos-texte p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Pour les tablettes (960px et moins) */
+@media (max-width: 960px) {
+
+    .propos-container {
+        margin: 0 90px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main {
+        margin: auto;
+    }
+
+    .photo {
+        visibility: hidden;
+        height: 0;
+    }
+}
+
+/* Pour les téléphones (600px et moins) */
+@media (max-width: 600px) {
+    .propos-container {
+        margin: 0 60px;
+    }
+}

@@ -1,0 +1,62 @@
+/* --- CONTENEUR INFOS --- */
+
+.detail-container {
+    margin-top: 30px;
+    background: #232323;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 8px 8px 1px #1a6d2e;
+    height: fit-content;
+
+}
+
+.detail-text h2 {
+    font-size: 3em;
+    text-decoration: underline 2px;
+    text-underline-offset: 0.3em;
+    margin: 0;
+}
+
+.detail-text p {
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-bottom: 70px;
+    text-align: justify;
+}
+
+/* --- SECTION VINYLES  --- */
+
+.vinyles-genre {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+img {
+    width: 240px;
+    height: 240px;
+}
+
+.nom {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #484848;
+}
+
+@media (max-width: 960px) {
+    .banner {
+        height: 0px;
+    }
+
+    .detail-text p {
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 600px) {
+    .detail-container {
+        padding: 10px 0px;
+    }
+}

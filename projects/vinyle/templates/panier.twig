@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/panier.css">
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block main %}
+<h1>Mon panier</h1>
+{% if vinyles is not empty %}
+<ul class="panier-list">
+    {% for vinyle in vinyles %}
+    <li class="panier-item">
+        <img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}">
+        {{ vinyle.titre }}
+        <a href="supprimer_panier.php?id={{ vinyle.id_vinyle }}" class="btn-supprimer">Supprimer</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="valider_commande.php" class="btn-valider">Valider la commande</a>
+{% else %}
+<p>Votre panier est vide.</p>
+{% endif %}
+{% endblock %}

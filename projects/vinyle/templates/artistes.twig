@@ -1,23 +1,24 @@
 {% extends 'base.twig' %}
 
 {% block stylesheet %}
-	<link rel="stylesheet" href="css/artistes.css">
+<link rel="stylesheet" href="css/artistes.css">
 {% endblock %}
 
-{% block banner %}{% endblock %}
+{% block banner %}
+{% endblock %}
 
 {% block main %}
-	<h1>Liste des Artistes</h1>
+<h1>Liste des Artistes</h1>
+<div class="wrapper">
 	{% for artiste in artistes %}
-
-		<div class="artistes-photos">
-			<a href="detail_artiste.php?id={{ artiste.id_artiste }}">
-				<img src="img/artistes/{{ artiste.photo }}" alt="{{ artiste.nom }}"/>
-				<div class="nom">
-					{{ artiste.nom }}
-				</div>
-			</a>
-		</div>
-
+	<div class="artistes-photos">
+		<a href="detail_artiste.php?id={{ artiste.id_artiste }}">
+			<img src="img/artistes/{{ artiste.photo }}" alt="{{ artiste.nom }}" />
+			<div class="nom">
+				{{ artiste.nom }}
+			</div>
+		</a>
+	</div>
 	{% endfor %}
-</div>{% endblock %}
+</div>
+{% endblock %}

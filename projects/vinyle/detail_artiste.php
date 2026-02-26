@@ -24,7 +24,15 @@ $query->bindValue(':id', $id, PDO::PARAM_INT);
 $query->execute();
 $artistes = $query->fetchAll(PDO::FETCH_ASSOC);
 
+// Récupération des vinyles de l'artiste
+$sql_vinyles = 'SELECT * FROM vinyles WHERE id_artiste = :id';
+$query_vinyles = $pdo->prepare($sql_vinyles);
+$query_vinyles->bindValue(':id', $id, PDO::PARAM_INT);
+$query_vinyles->execute();
+$vinyles = $query_vinyles->fetchAll(PDO::FETCH_ASSOC);
+
 // Lancement du moteur Twig avec les données
 echo $twig->render('detail_artiste.twig', [
-	'artistes' => $artistes
+	'artistes' => $artistes, 
+	'vinyles' => $vinyles
 ]);

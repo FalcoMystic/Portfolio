@@ -1,43 +1,50 @@
 {% extends 'index.twig' %}
 {% block title %}
-    {{ project.titre }}
+	{{ project.titre }}
 {% endblock %}
 {% block main %}
-    <div class="projet-detail">
-        <div class="projet-info">
-            <div class="top-part-project">
-                <h1>
-                    {{ project.titre }}
-                </h1>
-                <p class="date">
-                    {{ project.date }}
-                </p>
-            </div>
-            <p class="description">
-                {{ project.description }}
-            </p>
-            <a href="{{ project.lien }}" target="_blank" class="project-lien">
-                Voir le projet
-            </a>
-        </div>
-        <aside class="autres-projects">
-            <h3>
-                Autres projets
-            </h3>
-            <ul>
-                {% for project in projects %}
-                    {% if project.id != selectedProject.id %}
-                        <li>
-                            <a href="project.php?id={{ project.id }}">
-                                {{ project.titre }}
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </aside>
-    </div>
-    <a href="projects.php" class="btn-back-project">
-        ← Retour aux projets
-    </a>
+	<div class="project-detail">
+		<div class="project-info">
+			<div class="top-part-project">
+				<h1>
+					{{ project.titre }}
+				</h1>
+				<p class="date">
+					{{ project.date }}
+				</p>
+			</div>
+			<div class="bottom-part-project">
+				<p class="description">
+					{{ project.desc_courte }}
+				</p>
+				<a href="{{ project.lien }}" target="_blank" class="project-lien">
+					Voir le projet
+				</a>
+			</div>
+			<div class="img-container-project">
+				{% for photo in project.photos %}
+					<img class="project-image" src="{{ photo }}" alt="Image {{ loop.index }} du projet {{ project.titre }}"/>
+				{% endfor %}
+			</div>
+		</div>
+		<aside class="autres-projects">
+			<h3>
+				Autres projets
+			</h3>
+			<ul>
+				{% for project in projects %}
+					{% if project.id != selectedProject.id %}
+						<li>
+							<a href="project.php?id={{ project.id }}">
+								{{ project.titre }}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</aside>
+	</div>
+	<a href="projects.php" class="btn-back-project">
+		← Retour aux projets
+	</a>
 {% endblock %}

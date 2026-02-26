@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliothèque</title>
+    <title>33 Tours</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     {% block stylesheet %}{% endblock %}
@@ -36,48 +36,85 @@
 
     {% block banner %}
     <div class="banner">
-        <h1 class="banner-text">33 Tours</h1>
+        <div class="banner-image"></div>
+        <h1 class="banner-text"> Le Paradis des Vinyles</h1>
     </div>
     {% endblock %}
 
     <main>
         {% block main %}
 
-        <h2>Bibliothèque</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam mollitia eaque optio et excepturi non iure quos odit
-        ipsum dolor dolorum, atque consequuntur a eveniet quae, ad rerum repellendus minima!</p>
-        <h2>Nos Vinyles du Week-end !</h2>
+        <h2>Présentation</h2>
+
+        <p class="presentation">
+            Bienvenue dans notre bibliothèque de vinyles ! Ici, vous trouverez une sélection variée de vinyles allant
+            des classiques intemporels aux nouveautés les plus tendance. Que vous soyez un collectionneur passionné ou
+            un amateur de musique occasionnel, nous avons quelque chose pour tout le monde. Parcourez notre collection
+            et découvrez vos nouveaux albums préférés !
+        </p>
+
         <section>
-            <div class="vinyle-part">
-            {% for vinyle in vinyles %}
-            <div class="vinyles">
-            {% if vinyle.id_vinyle in [3, 11, 16] %}
-            <img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}" />
-            {% endif %}
-            </div>
-            {% endfor %}
+            <h2>Vinyles du Mois</h2>
+            <div class="vinyles-part">
+                {% for vinyle in vinyles %}
+                {% if vinyle.id_vinyle in [3, 11, 16] %}
+                <a href="detail_vinyle.php?id={{ vinyle.id_vinyle }}" class="vinyles-photos">
+                    <img src="img/vinyles/{{ vinyle.couverture }}" alt="{{ vinyle.titre }}" />
+                    <div class="nom">{{ vinyle.titre }}</div>
+                </a>
+                {% endif %}
+                {% endfor %}
             </div>
         </section>
 
         <section>
-            {% for artiste in artistes %}
-            {% if artiste.id_artiste in [2, 7, 10] %}
-            <img src="img/artistes/{{ artiste.photo }}" alt="{{ artiste.nom }}" />
-            {% endif %}
-            {% endfor %}
+            <h2>Artistes du Mois</h2>
+                <div class="artistes-part">
+                    {% for artiste in artistes %}
+                    {% if artiste.id_artiste in [2, 7, 10] %}
+                    <a href="detail_artiste.php?id={{ artiste.id_artiste }}">
+                        <img src="img/artistes/{{ artiste.photo }}" alt="{{ artiste.nom }}" />
+                        <div class="nom">{{ artiste.nom }}</div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <h2>Genres du Mois</h2>
+                <div class="genres-part">
+                    {% for genre in genres %}
+                    {% if genre.id_genre in [5, 8, 12] %}
+                    <a href="detail_genre.php?id={{ genre.id_genre }}">
+                        <img src="img/genres/{{ genre.image }}" alt="{{ genre.nom }}" />
+                        <div class="nom">{{ genre.nom }}</div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
         </section>
 
-        <section>
-            {% for genre in genres %}
-            {% if genre.id_genre in [5, 12] %}
-            <img src="img/genres/{{ genre.image }}" alt="{{ genre.nom }}" />
-            {% endif %}
-            {% endfor %}
-        </section>
         {% endblock %}
 
     </main>
     <footer>
+
+        <nav class="footer-nav">
+            <div class="nav-left">
+                <a href="index.php">ACCUEIL</a>
+                <a href="vinyles.php">VINYLES</a>
+                <a href="artistes.php">ARTISTES</a>
+                <a href="genres.php">GENRES</a>
+                <a href="propos.php">A PROPOS</a>
+            </div>
+            <div class="nav-right">
+                <a href="panier.php" class="btn-demo">PANIER</a>
+            </div>
+        </nav>
+
+        <h2 class="footer-titre">33 TOURS</h2>
+
+        <div class="footer-bot">
+            <p>© 2025 33 TOURS. Tous droits réservés.</p>
+        </div>
 
     </footer>
 </body>
