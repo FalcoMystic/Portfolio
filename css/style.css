@@ -233,6 +233,7 @@ li {
 .top-part-projects {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .details-project {
@@ -240,6 +241,12 @@ li {
 }
 
 /* PROJECT */
+
+.top-part-project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .bottom-part-project {
   display: flex;
