@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+	{# Pas de menu sur la page d'inscription #}
+{% endblock %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<a href="{{ path('home') }}">
+		<img src="{{ asset('img/logo.webp')}}" class="logo" alt="logo">
+	</a>
+
+	<div class="connexion-container">
+		<div class="connexion-left">
+			{% for flash_error in app.flashes('verify_email_error') %}
+				<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+			{% endfor %}
+
+			{{ form_errors(registrationForm) }}
+
+			{{ form_start(registrationForm, {'attr': {'class': 'formulaire'}}) }}
+
+			<div class="connexion-titre-icon">
+				<img class="icon-connexion" src="{{ asset('svg/user-connexion.svg') }}" alt="icone user">
+				<h2 class="inscription-titre">Inscription</h2>
+			</div>
+
+			<div class="connexion-champs">
+				<div class="connexion-email">
+					{{ form_row(registrationForm.email, {
+						label_attr: {class: 'connexion-champs-nom'},
+						attr: {class: 'connexion-champ'}
+
+					}) }}
+				</div>
+
+				<div class="connexion-password">
+					{{ form_row(registrationForm.plainPassword, {
+						label: 'Password',
+						label_attr: {class: 'connexion-champs-nom'},
+						attr: {class: 'connexion-champ'}
+
+					}) }}
+				</div>
+			</div>
+
+			{{ form_row(registrationForm.agreeTerms, {
+                label: 'Accepter les conditions d\'utilisation',
+				row_attr: {class: 'inscription-conditions'},
+				label_attr: {class: 'connexion-champs-nom'},
+                attr: {class: 'inscription-checkbox'}
+			}) }}
+
+			<div class="container-submit">
+				<button class="btn-envoi" type="submit">Procéder à l'inscription</button>
+				<p class="information">Déjà un compte ?
+					<a href="{{ path('app_login') }}">Connectez-vous</a>
+				</p>
+			</div>
+
+			{{ form_end(registrationForm) }}
+		</div>
+
+		<div class="connexion-right">
+			<div class="connexion-image">
+				<img src="{{ asset('img/img-inscription.jpg') }}" alt="inscription image">
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block footer %}
+	{# Pas de menu sur la page d'inscription #}
+{% endblock %}

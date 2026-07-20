@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %} <script src="{{ asset('js/filtre.js') }}" defer></script>
+	<script src="{{ asset('js/filtre-parcours-responsive.js') }}" defer></script>
+{% endblock %}
+{% block body %}
+
+
+	<form method="get" action="{{ path('parcours') }}">
+		<div class="page-parcours">
+			<h2 class="titre-parcours">Les Parcours</h2>
+			<button type="button" class="btn-filtre-toggle" id="btn-filtre-toggle">
+				Filtres
+			</button>
+			<div class="container-filtre" id="bloc-filtre">
+				<h2 class="titre_filtre">Filtres</h2>
+
+				{# Filtre durée #}
+				{# Durée min #}
+				<h3 class="toggle-titre">
+					Durée
+					<button type="button" class="toggle-btn">−</button>
+				</h3>
+
+				<div class="toggle-contenu">
+
+					<label>Durée min</label>
+					<div class="duration-ligne">
+						<input type="number" name="duration_min_h" min="0" max="23" placeholder="Heures" value="{{ durationMinH ?? '' }}">
+						<input type="number" name="duration_min_m" min="0" max="59" placeholder="Minutes" value="{{ durationMinM ?? '' }}">
+					</div>
+
+					{# Durée max #}
+					<label>Durée max</label>
+					<div class="duration-ligne">
+						<input type="number" name="duration_max_h" min="0" max="23" placeholder="Heures" value="{{ durationMaxH ?? '' }}">
+						<input type="number" name="duration_max_m" min="0" max="59" placeholder="Minutes" value="{{ durationMaxM ?? '' }}">
+					</div>
+				</div>
+
+				{# Filtre archipels #}
+				<h3 class="toggle-titre">
+					Archipels
+					<button type="button" class="toggle-btn">−</button>
+				</h3>
+				<div class="toggle-contenu">
+					{% for archipelago in archipelagos %}
+						<label>
+							<input type="checkbox" name="archipelagos[]" value="{{ archipelago.id }}" {{ archipelago.id ~ '' in selectedArchipelagoIds ? 'checked' : '' }}>
+							{{ archipelago.name }}
+						</label>
+					{% endfor %}
+				</div>
+
+				{# Filtre tags #}
+				<h3 class="toggle-titre">
+					Tags
+					<button type="button" class="toggle-btn">−</button>
+				</h3>
+				<div class="toggle-contenu">
+					{% for tag in tags %}
+						<label><input type="checkbox" name="tags[]" value="{{ tag.id }}" {{ tag.id ~ '' in selectedTagIds ? 'checked' : '' }}>
+							{{ tag.name }}
+						</label>
+					{% endfor %}
+				</div>
+
+				<button class="btn-filtre" type="submit">Appliquer les filtres</button>
+
+				{% if selectedArchipelagoIds is not empty or selectedTagIds is not empty or durationMinH or durationMaxH %}
+					<a href="{{ path('parcours') }}">Réinitialiser</a>
+				{% endif %}
+			</form>
+
+			{% if app.user %}
+				<a class="btn-filtre btn-creer-parcours" href="{{ path('route_new') }}">Créer un parcours</a>
+			{% else %}
+				<a class="btn-filtre btn-creer-parcours" href="{{ path('app_login') }}">Créer un parcours</a>
+			{% endif %}
+		</div>
+		<div class="container-parcours">
+			{% for route in routes %}
+				<div class="parcours-card">
+
+					<div class="parcours-icone">
+						<h3>{{ route.title }}</h3>
+						<div class="titre-icone">
+							<img class="icon-archipel" src="{{ asset('img/cocotier.png') }}" alt="Icone archipel">
+							{% set seen = [] %}
+							<div class="infos-ligne">
+								{% for island in route.islands %}
+									{% if island.archipelago and island.archipelago.id not in seen %}
+										<p>{{ island.archipelago.name }}
+											{{ not loop.last ? '  -  ' : ' ' }}</p>
+										{% set seen = seen|merge([island.archipelago.id]) %}
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+
+
+						<div class="titre-icone">
+							<img class="icon-iles" src="{{ asset('svg/route.svg') }}" alt="Icone iles">
+							<div class="infos-ligne">
+								{% for island in route.islands %}
+									<p>{{ island.name }}
+										{{ not loop.last ? '  -  ' : ' ' }}</p>
+								{% endfor %}
+							</div>
+						</div>
+
+						<div class="infos-ligne">
+							<img class="icon-tags" src="{{ asset('svg/tag.svg') }}" alt="Icone tags">
+
+							{% for tag in route.tags %}
+
+								<div class="titre-icone">
+									<p class="contour-tag">{{ tag.name }}</p>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+
+					<p class="text-parcours">
+						<a href="{{ path('routeOne', {'id': route.id}) }}">Voir le parcours</a>
+					</p>
+
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

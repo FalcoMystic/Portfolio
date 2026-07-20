@@ -1,0 +1,50 @@
+@use '../base/variables' as v;
+
+.c-profil-edit {
+	display: flex;
+	justify-content: center;
+	height: 610px;
+}
+
+.btn-save-profil-edit {
+	display: flex;
+	justify-content: center;
+
+	font-family: 'Manrope-Regular';
+	border: none;
+	border-radius: 10px;
+	color: v.$blanc;
+	font-size: 16px;
+	padding: 10px;
+	background-color: v.$bleu;
+	cursor: pointer;
+}
+
+.profil-edit-champ {
+	min-height: 30px;
+	width: 100%;
+	font-size: 20px;
+	border-radius: 10px;
+	border: 2px solid v.$noir;
+	padding: 6px 0 6px 15px;
+}
+
+.espacement-champ {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
+	margin: 15px 0 20px;
+}
+
+@media (max-width: 700px) {
+	.profil-edit-h1 {
+		margin-top: 50px;
+	}
+
+	.c-profil-edit {
+		display: flex;
+		justify-content: center;
+		height: 700px;
+	}
+}

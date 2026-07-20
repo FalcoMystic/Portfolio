@@ -1,0 +1,17 @@
+{
+  "name": "sae401-archipelz",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "sass": "sass public/scss/app.scss public/css/style.css --watch"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "sass": "^1.79.3"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2",
+    "@hotwired/turbo": "^7.2"
+  }
+}

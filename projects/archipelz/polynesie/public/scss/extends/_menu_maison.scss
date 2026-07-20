@@ -1,0 +1,59 @@
+@use '../base/variables' as v;
+
+
+.menu-burger {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+.menu-burger {
+    display: inline-flex;
+    position: fixed;
+    bottom: 50px; 
+    right: 20px;
+    z-index: 2;
+}
+
+.dropdown-content {
+    position: absolute;
+    bottom: 90px; 
+    right: 15px;
+    width: 220px;
+    background: v.$blanc;
+    border-radius: 22px;
+    flex-direction: column-reverse; 
+    justify-content: center; 
+    border: 2px solid v.$noir;
+}
+
+.presentation-menu {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+        font-size: 26px;
+}
+
+.texte-menu{
+    font-size: 40px;
+}
+
+.icon-maison{
+    background-color: v.$blanc ;
+    padding: 5px;
+    border-radius: 10px;
+    width: 50px;
+    height : 50px;
+}
+
+.icon-maison img {
+    width: 50px;
+    height : 50px;
+}
+
+.icon-maison--btn{
+    border: 2px solid v.$noir;
+    color: v.$bleu-nuit;
+}
+
+}

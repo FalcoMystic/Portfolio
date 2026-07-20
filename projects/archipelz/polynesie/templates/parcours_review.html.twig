@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container">
+
+		<a class="details-parcours-sous-infos details-parcours-back" href="{{ path('parcours') }}"><img class="details-parcours-icons" src="{{ asset('svg/back.svg') }}" alt="icon-duree">Retour en arrière</a>
+
+
+		<h1>Ajouter un avis</h1>
+
+		{{ form_start(form) }}
+
+		{{ form_row(form.rating, {
+            label: 'Notation sur 10 du parcours : ',
+            row_attr: {class: 'espacement-champ'},
+            attr: {min: 0, max: 10, class: 'champ'}
+        }) }}
+
+		{{ form_row(form.description, {
+            label: 'Votre avis personnel : ',
+			row_attr: {class: 'espacement-champ'},
+            attr: {class: 'parcours-review-champ'}
+        }) }}
+
+
+		<button class="btn-add-review">Ajouter</button>
+
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

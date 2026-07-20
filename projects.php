@@ -10,4 +10,7 @@ $twig = new \Twig\Environment($loader);
 
 // Charger le template et passer la variable
 $template = $twig->load('projects.twig');
-echo $template->render(['projects' => $projects]);
+echo $template->render([
+    'projects_web' => $projects_web,
+    'projects_game' => $projects_game
+]);

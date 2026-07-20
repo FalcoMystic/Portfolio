@@ -1,0 +1,215 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/carrousel.js') }}" defer></script>
+	<script src="{{ asset('js/faqDeroulant.js') }}" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+{% endblock %}
+
+{% block header %}
+<header>
+	<nav class="nav-menu">
+		<a href="{{ path('home') }}">
+			<img class="base-logo" src="{{ asset('img/logo.webp') }}" alt="logo">
+		</a>
+		<div class="nav-menu-flex">
+
+			<a href="{{ path('home') }}">Accueil</a>
+			<a href="{{ path('parcours') }}">Parcours</a>
+			{% if app.user %}
+				<div class="dropdown">
+					<a class="dropbtn" onclick="myFunction()">
+						Compte
+						<img class="icon-dropdown" src="{{ asset('svg/down_fill.svg') }}" alt="Icone iles">
+					</a>
+
+					<div class="dropdown-content" id="myDropdown">
+						<a href="{{ path('app_profile') }}">Mon profil</a>
+						<a href="{{ path('app_logout') }}">Déconnexion</a>
+					</div>
+				</div>
+			{% else %}
+				<a href="{{ path('app_login') }}">Connexion</a>
+			{% endif %}
+		</div>
+	</nav>
+
+
+	<div class="dropdown">
+		<a class="dropbtn">
+			<div class="menu-burger" id="menu_maison"><img class="icon-maison icon-maison--btn" src="{{ asset('svg/home_4_fill.svg') }}" alt="Icone maison">
+			</a>
+
+
+			<div class="dropdown-content mobile-menu-dropdown" id="mobileMenuDropdown">
+
+				<div class="groupe-icone">
+
+					<div class="presentation-menu">
+						<img class="icon-maison" src="{{ asset('svg/route.svg') }}" alt="Icone maison">
+						<a class="texte-menu" href="{{ path('parcours') }}">Parcours</a>
+					</div>
+
+					<div class="presentation-menu">
+						<img class="icon-maison icon-maison" src="{{ asset('svg/heart_line.svg') }}" alt="Icone maison">
+						<a href="{{ path('app_profile') }}">
+							Profil</a>
+					</div>
+
+					{% if app.user %}
+						<div class="presentation-menu">
+							<img class="icon-maison" src="{{ asset('svg/exit_fill.svg') }}" alt="Icone maison">
+							<a href="{{ path('app_logout') }}">Déconnexion</a>
+						</div>
+					{% else %}
+						<div class="presentation-menu">
+							<img class="icon-maison" src="{{ asset('svg/user-connexion.svg') }}" alt="Icone maison">
+							<a href="{{ path('app_login') }}">Connexion</a>
+						</div>
+					{% endif %}
+
+					<div class="presentation-menu">
+						<img class="icon-maison" src="{{ asset('svg/home_4_fill.svg') }}" alt="Icone maison">
+						<a href="{{ path('home') }}">Accueil</a>
+					</div>
+					<div></div>
+
+				</div>
+
+			</header>
+
+	{% block banner %}
+		<div class="fullscreen-home">
+			<img class="fullscreen-home__image" src="{{ asset('img/image-accueil.jpeg') }}" alt="image ile">
+			<h1 class="accueil-h1">{{ titre }}</h1>
+		</div>
+	{% endblock %}
+{% endblock %}
+
+
+{% block body %}
+	<h2 class="accueil-h2">Bienvenue sur Archipelz</h2>
+
+	<div class="container c-presentation">
+		<div class="top-part-presentation">
+			<p class="home-text">Notre application est là pour vous permettre de  trouver facilement des parcours de voyage touristiques à travers nos 5 archipels. Cette destination à l'autre bout du monde vous permettra d'en apprendre plus sur la faune et la flore de la Polynésie française.
+			</p>
+			<img class="img-home home-image-1" src="{{ asset('img/accueil-motu1.jpg')}}" alt="iles">
+		</div>
+
+		<div class="bottom-part-presentation">
+			<img class="img-home home-image-2" src="{{ asset('img/accueil-motu2.jpeg')}}" alt="iles">
+			<p class="home-text ">
+				Ce territoire situé dans l'océan Pacific, vous permettra d'acquérir des connaissances sur toutes nos especès présentent aussi bien marines que terrestres. Ces parcours vous permmetrons de découvrir les précieux trésors que la Polynésie a à vous offir tout le long de votre séjour.
+			</p>
+		</div>
+	</div>
+
+
+	<div id="content1" class="carousel">
+		<div class="item">
+			<div class="item__image">
+				<img src="{{ asset('img/société.jpg')}}" alt="iles de la Société">
+			</div>
+			<div class="item__body">
+				<div class="item__title">
+					Îles de la société</h3>
+			</div>
+			<div class="item__description">
+				Cet archipel est divisé en deux groupes : les Îles du Vent et les Îles Sous-le-Vent. 
+												Les Îles du Vent comprennent notamment Tahiti et Moorea, tandis que Bora Bora et 
+												Huahine font partie des Îles Sous-le-Vent.
+			</div>
+		</div>
+	</div>
+
+	<div class="item">
+		<div class="item__image">
+			<img src="{{ asset('img/tuamotu.jpg')}}" alt="iles des Tuamotu">
+		</div>
+		<div class="item__body">
+			<div class="item__title">Îles Tuamotu</div>
+			<div class="item__description">
+				Les Tuamotu accueillent aussi plusieurs espèces d’oiseaux marins qui viennent nicher 
+												sur les îlots. La préservation de ces écosystèmes est importante, car ils sont 
+												fragiles et peuvent être menacés par le changement climatique, la pollution 
+												ou la surpêche.
+			</div>
+		</div>
+	</div>
+
+	<div class="item">
+		<div class="item__image">
+			<img src="{{ asset('img/gambier.webp')}}" alt="iles des Gambiers">
+		</div>
+		<div class="item__body">
+			<div class="item__title">Îles Gambier</div>
+			<div class="item__description">
+				Cet archipel est composé de plusieurs îles volcaniques entourées d’un grand lagon 
+												et de nombreux motu (petits îlots). Grâce à cet environnement naturel, les Gambier 
+												possèdent une biodiversité riche et variée. Le lagon abrite de nombreuses espèces 
+												marines comme des poissons tropicaux, des coraux, des tortues marines et 
+												différentes espèces de raies.
+			</div>
+		</div>
+	</div>
+
+	<div class="item">
+		<div class="item__image">
+			<img src="{{ asset('img/australes.webp')}}" alt="iles des Australes">
+		</div>
+		<div class="item__body">
+			<div class="item__title">Îles Australes</div>
+			<div class="item__description">
+				Les eaux qui entourent les Australes abritent de nombreuses espèces marines. 
+												Chaque année, des baleines à bosse viennent également dans cette région pour 
+												mettre bas dans les eaux chaudes du Pacifique.
+			</div>
+		</div>
+	</div>
+
+	<div class="item">
+		<div class="item__image">
+			<img src="{{ asset('img/marquises.jpg')}}" alt="iles des Marquises">
+		</div>
+		<div class="item__body">
+			<div class="item__title">Îles Marquises</div>
+			<div class="item__description">
+				Les fonds marins sont encore très préservés et abritent de nombreuses espèces. 
+												Grâce à leur isolement géographique, les Marquises possèdent une nature sauvage 
+												et préservée. Cependant, certaines espèces restent fragiles et nécessitent des 
+												efforts de protection pour préserver cette biodiversité exceptionnelle.
+			</div>
+		</div>
+	</div>
+</div>
+
+<h2 class="accueil-h2">
+
+	Foire aux questions (FAQ)
+</h2>
+<div class="container c-faq">
+	<div class="questions">
+		<div class="visible-pannel">
+			<h3>Quelles sont les îles à visiter absolument ?</h3>
+			<img src="{{ asset('svg/arrow.svg') }}" alt="arrow">
+		</div>
+
+		<div class="toggle-pannel">
+			<p>La Polynésie française possède de nombreuses îles magnifiques à découvrir. L’île principale, Tahiti, est connue pour ses montagnes, ses cascades et sa culture locale. Bora Bora est célèbre pour son lagon turquoise et ses paysages paradisiaques. L’île de Moorea offre une nature spectaculaire avec ses montagnes verdoyantes. Pour les amateurs de plongée, Rangiroa et Fakarava sont incontournables grâce à leur biodiversité marine. Enfin, Nuku Hiva est idéale pour découvrir une nature sauvage et la culture marquisienne.</p>
+		</div>
+
+	</div>
+	<div class="questions">
+		<div class="visible-pannel">
+			<h3>Quelle est la durée parfaite d’un parcours ?</h3>
+			<img src="{{ asset('svg/arrow.svg') }}" alt="arrow">
+		</div>
+
+		<div class="toggle-pannel">
+
+			<p>Pour un parcours en Polynésie française, la durée idéale en journées est la suivante : 3 à 4 jours pour une île comme Tahiti ou Moorea, 10 à 12 jours pour visiter 2 à 3 îles comme Tahiti, Moorea et Bora Bora, et environ 21 à 30 jours pour explorer plusieurs archipels et atolls. Il est conseillé de consacrer au moins 2 à 3 journées par île pour profiter pleinement des paysages et de la biodiversité.</p>
+		</div>
+
+	</div>
+</div>{% endblock %}

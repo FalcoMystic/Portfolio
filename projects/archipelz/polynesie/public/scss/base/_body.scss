@@ -1,0 +1,22 @@
+@use '../base/variables' as v;
+
+body {
+	background-color: v.$blanc;
+}
+
+a {
+	text-decoration: none;
+	color: v.$noir;
+}
+
+main {
+	padding-top: 50px ;
+}
+
+.container {
+	width: 70%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}

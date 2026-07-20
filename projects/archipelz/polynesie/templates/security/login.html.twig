@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block header %}
+	{# Pas de menu sur la page de connexion #}
+{% endblock %}
+
+{% block body %}
+	<a href="{{ path('home') }}">
+		<img src="{{ asset('img/logo.webp') }}" class="logo" alt="logo">
+	</a>
+
+	<div class="connexion-container">
+
+		<div class="connexion-left">
+
+			<form class="formulaire" method="post">
+				{% if error %}
+					<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+				{% endif %}
+
+				{% if app.user %}
+					<div>
+						You are logged in as
+						{{ app.user.userIdentifier }},
+						<a href="{{ logout_path() }}">Logout</a>
+					</div>
+				{% endif %}
+
+				<div class="connexion-titre-icon">
+					<img class="icon-connexion" src="{{ asset('svg/user-connexion.svg') }}" alt="icone user">
+					<h2 class="connexion-titre">Connexion</h2>
+				</div>
+
+				<div class="connexion-champs">
+					<div class="connexion-email">
+						<label class="connexion-champs-nom" for="username">Email</label>
+						<input type="email" value="{{ last_username }}" name="_username" id="username" class="connexion-champ" autocomplete="email" required autofocus>
+					</div>
+
+
+					<div class="connexion-password">
+						<label class="connexion-champs-nom" for="password">Password</label>
+						<input type="password" name="_password" id="password" class="connexion-champ" autocomplete="current-password" required>
+					</div>
+				</div>
+
+
+				<input class="connexion-champ" type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+
+				<div class="container-submit">
+
+					<button class="btn-envoi" type="submit">
+						Se connecter
+					</button>
+
+					<p class="information">Pas encore de compte ?
+						<a href="{{ path('app_register') }}">Créez en un</a>
+
+
+					</p>
+				</div>
+			</form>
+		</div>
+
+		<div class="connexion-right">
+			<div class="connexion-image">
+				<img src="{{ asset('img/img-connexion.jpg') }}" alt="connexion image">
+			</div>
+		</div>
+	</div>
+
+	{% block footer %}
+		{# Pas de menu sur la page de connexion #}
+	{% endblock %}
+{% endblock %}

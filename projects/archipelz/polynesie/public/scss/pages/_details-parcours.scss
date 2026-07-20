@@ -1,0 +1,120 @@
+@use "../base/variables" as v;
+
+.c-details-parcours {
+	gap: 80px;
+}
+
+.parcours-details-h1 {
+	width: 80%;
+	text-decoration: underline solid v.$noir 2px;
+}
+
+.details-parcours-top,
+.details-parcours-middle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.details-parcours-infos {
+	width: 35%;
+
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.details-parcours-desc p {
+	font-family: "Manrope-Light";
+	font-size: 20px;
+	margin-bottom: 16px;
+	line-height: 1.3;
+}
+
+.details-parcours-sous-infos {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.details-parcours-icons {
+	width: 30px;
+	height: 30px;
+}
+
+.details-parcours-carte {
+	width: 60%;
+}
+
+.parcours-details-modification p {
+	font-size: 16px;
+	color: v.$gris;
+}
+
+.details-parcours-bottom {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+.details-parcours-groupe-avis {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width: 100%;
+	gap: 20px;
+}
+
+.details-parcours-avis-btn {
+	text-align: center;
+	background-color: v.$bleu;
+	padding: 12px 15px;
+	width: 150px;
+	color: v.$blanc;
+	border-radius: 8px;
+	font-size: 20px;
+}
+
+.details-parcours-option {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.details-parcours-avis-img {
+	width: 45px;
+	height: 45px;
+}
+
+@media (max-width: 700px) {
+	.c-details-parcours {
+		gap: 30px;
+		margin-top: 80px;
+	}
+
+	.parcours-details-h1 {
+		width: 100%;
+		font-size: 32px;
+		text-decoration: underline solid v.$noir 2px;
+	}
+
+	.details-parcours-top {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.details-parcours-middle {
+		flex-direction: column;
+	}
+
+	.details-parcours-infos {
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+	.details-parcours-carte {
+		width: 100%;
+	}
+}

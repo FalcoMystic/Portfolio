@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+	<script>
+		window.tagCreateUrl = "{{ path('tag_create') }}";
+window.markersData = {{ markers|map(m => {
+            'id': m.id,
+            'lat': m.latitude,
+            'lng': m.longitude,
+            'title': m.title ?? m.speciesName ?? 'Inconnu',
+            'photo': m.photoUrl,
+            'description': m.description
+        })|json_encode|raw }};
+window.existingMarkerIds = {{ existingMarkerIds|json_encode|raw }};
+	</script>
+	<script src="{{ asset('js/tag_add.js') }}" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+	<script src="{{ asset('js/map_edit.js') }}" defer></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKefB-llhthKebD0v2gGePgLF3fh1n1WE&callback=initMap"></script>
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="parcours-edit-h1">Modifier le parcours</h1>
+		<div class="c-parcours-edit">
+
+			<div class="parcours-edit-category">
+				{{ form_start(form) }}
+				{{ form_row(form.title, {
+				label: 'Titre',
+				attr: {class: 'parcours-edit-champ-titre'},
+				row_attr:{class: 'espacement-champ'}
+			}) }}
+			</div>
+			<div class="parcours-edit-category">
+				{{ form_row(form.description, {
+				label: 'Description',
+				attr: {class: 'parcours-edit-champ-desc'},
+				row_attr:{class: 'espacement-champ'}
+			}) }}
+			</div>
+
+			<h3>Durée</h3>
+			<div>
+				<input class="parcours-edit-champ" type="number" name="duration_h" min="0" placeholder="Heures" value="{{ durationH }}">
+
+				<input class="parcours-edit-champ" type="number" name="duration_m" min="0" max="59" placeholder="Minutes" value="{{ durationM }}">
+			</div>
+
+
+			{{ form_row(form.for_disabled, {
+				label: 'Accesible au personnes handicapées ?',
+				label_attr: {class: 'parcours-edit-category'},
+				attr: {class: 'inscription-checkbox'}
+
+				
+			}) }}
+
+			{{ form_row(form.tags, {
+				label: 'Tags',
+				label_attr: {class: 'parcours-edit-category'},
+			attr: {class: 'parcours-edit-checkbox'}
+
+			})}}
+
+			<div class="parcours-edit-group-tag">
+				<input class="parcours-edit-champ-tag" type="text" id="new_tag_name" placeholder="Nouveau tag...">
+
+				<button type="button" id="btn_add_tag">Ajouter</button>
+
+				<span id="tag_feedback"></span>
+			</div>
+
+			<input type="hidden" name="selected_markers" id="selected_markers" value="[]">
+
+			<div id="parcours-edit-markers-selectionnes">
+				<h3>Marqueurs sélectionnés :
+					<span id="compteur">0</span>
+				</h3>
+				<ul id="liste-markers"></ul>
+			</div>
+			<div id="carte" style="height: 600px; width: 100%;"></div>
+
+			<button class="btn-save-parcours-edit" type="submit">Enregistrer les modifications</button>
+
+			{{ form_end(form) }}
+
+		</div>
+	</div>
+{% endblock %}

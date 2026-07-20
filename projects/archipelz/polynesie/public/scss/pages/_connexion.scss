@@ -1,0 +1,219 @@
+@use "../base/variables" as v;
+
+.connexion-container {
+	display: flex;
+	height: 100vh;
+}
+
+.connexion-left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	width: 50%;
+}
+
+.connexion-right {
+	flex: 1;
+	width: 50%;
+}
+
+.connexion-right img {
+	height: 100vh;
+	width: 100%;
+}
+
+// .connexion-image {
+// 	position: absolute;
+// 	right: 0;
+// 	top: 0;
+// 	width: 50%;
+// 	height: 100vh;
+// }
+
+// .connexion-image img {
+// 	width: 100%;
+// 	height: 100%;
+// 	object-fit: cover;
+// }
+
+.logo {
+	width: 200px;
+	position: absolute;
+	top: 0;
+	margin-left: 50px;
+}
+
+.formulaire {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30px;
+	gap: 40px;
+}
+
+.connexion-titre-icon {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.icon-connexion {
+	width: 60px;
+	height: 60px;
+}
+
+.connexion-email,
+.connexion-password {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	width: 100%;
+}
+
+.connexion-email label,
+.connexion-password label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.connexion-email input,
+.connexion-password input {
+	font-family: "Manrope-Regular";
+	font-size: 20px;
+	padding: 5px;
+}
+
+.connexion-champs {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	width: 100%;
+}
+
+.connexion-champs-nom {
+	font-size: 26px;
+	padding-bottom: 10px;
+}
+
+.connexion-champs-nom label {
+	font-family: "Manrope-Regular";
+}
+
+.connexion-champ {
+	outline: 0;
+	border-radius: 6px;
+	width: 100%;
+	height: 30px;
+}
+.connexion-champ:focus {
+	border: 1px solid v.$bleu-nuit;
+}
+
+#username,
+#password {
+	width: 100%;
+}
+
+.container-submit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.btn-envoi {
+	background-color: v.$bleu;
+	padding: 8px 18px;
+	border-radius: 6px;
+	color: v.$blanc;
+	font-size: 24px;
+	transition: 0.2s ease;
+
+	&:hover {
+		background: v.$bleu-nuit;
+		cursor: pointer;
+	}
+}
+
+.information {
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+.information a {
+	color: v.$bleu;
+	text-decoration: underline;
+}
+
+.connexion-titre {
+	display: none;
+}
+
+/* --- INSCRIPTION --- */
+
+.inscription-conditions label {
+	font-size: 20px;
+}
+
+.inscription-checkbox {
+	accent-color: v.$bleu;
+	border: 5px solid black;
+	cursor: pointer;
+	margin-left: 15px;
+}
+
+/*************************** MOBILE *****************************************/
+
+@media (max-width: 700px) {
+	.connexion-container {
+		flex-direction: column;
+		height: auto;
+		padding: 60px;
+	}
+
+	.logo {
+		display: none;
+	}
+
+	.connexion-right {
+		display: none;
+	}
+
+	.connexion-left {
+		width: 100%;
+		flex: none;
+	}
+
+	.formulaire {
+		width: 100%;
+		gap: 25px;
+	}
+
+	.connexion-champs-nom {
+		font-size: 20px;
+		padding-bottom: 20px;
+	}
+
+	.btn-envoi {
+		width: 100%;
+		font-size: 20px;
+		padding: 10px;
+	}
+
+	.information {
+		font-size: 16px;
+		text-align: center;
+	}
+
+	.icon-connexion {
+		display: none;
+	}
+
+	.connexion-titre {
+		display: block;
+		text-align: center;
+	}
+}

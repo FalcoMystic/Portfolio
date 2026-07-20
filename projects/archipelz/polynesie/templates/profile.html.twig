@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="profil-container">
+		<h1 class="profil-h1">{{ titre }}</h1>
+
+		{% if is_granted('ROLE_ADMIN') %}
+			<p>
+				<a class="profil-backoffice" href="{{ path('back_home') }}">
+					<img src="{{ asset('svg/shield.svg') }}">Accès au Backoffice</a>
+			</p>
+		{% endif %}
+
+		<div class="profil-infos">
+			<h2 class="profil-h2">Informations Personnelles</h2>
+			<p>
+				Email de l'utilisateur :
+				{{ user.email }}
+			</p>
+			<p>
+				Roles associés au compte :
+				{{ user.roles|map(r => r|capitalize)|join(', ') }}
+			</p>
+			<a href="{{ path('app_profileEdit') }}">Modifier votre profil</a>
+		</div>
+
+		<div class="profil-parcours">
+			<h2 class="profil-h2">Parcours</h2>
+			<div class="profil-parcours-perso">
+				<h3>Vos Parcours</h3>
+				{% for route in user.routes %}
+					<div class="profil-parcours-card">
+
+						<p>{{ route.title }}</p>
+						<div class="parcours-titre-icone">
+							<img class="icon-archipel" src="{{ asset('img/cocotier.png') }}" alt="Icone archipel">
+							<p>Archipels :</p>
+
+							{% set seen = [] %}
+							{% for island in route.islands %}
+								{% if island.archipelago and island.archipelago.id not in seen %}
+									<p>{{ island.archipelago.name }}</p>
+
+									{% set seen = seen|merge([island.archipelago.id]) %}
+								{% endif %}
+							{% endfor %}
+						</div>
+
+
+						<div class="parcours-titre-icone">
+							<img class="icon-iles" src="{{ asset('svg/route.svg') }}" alt="Icone iles">
+							<p>Îles :</p>
+
+							{% for island in route.islands %}
+								<p>{{ island.name }}</p>
+							{% endfor %}
+						</div>
+						<div class="parcours-titre-icone">
+
+							<img class="icon-tags" src="{{ asset('svg/tag.svg') }}" alt="Icone tags">
+							<p>Tags :</p>
+
+							{% for tag in route.tags %}
+								<p>{{ tag.name }}</p>
+							{% endfor %}
+						</div>
+						<p class="profil-text-parcours">
+							<a class="profil-text-parcours" href="{{ path('routeOne', {'id': route.id}) }}">Voir le parcours</a>
+						</p>
+
+					</div>
+
+				{% endfor %}
+			</div>
+			<div class="profil-parcours-favori">
+				<h3>Vos Favoris</h3>
+				{% for route in user.favorites %}
+					<div class="profil-parcours-card">
+
+						<p>{{ route.title }}</p>
+						<div class="parcours-titre-icone">
+							<img class="icon-archipel" src="{{ asset('img/cocotier.png') }}" alt="Icone archipel">
+							<p>Archipels :</p>
+
+							{% set seen = [] %}
+							{% for island in route.islands %}
+								{% if island.archipelago and island.archipelago.id not in seen %}
+									<p>{{ island.archipelago.name }}</p>
+
+									{% set seen = seen|merge([island.archipelago.id]) %}
+								{% endif %}
+							{% endfor %}
+						</div>
+
+
+						<div class="parcours-titre-icone">
+							<img class="icon-iles" src="{{ asset('svg/route.svg') }}" alt="Icone iles">
+							<p>Îles :</p>
+
+							{% for island in route.islands %}
+								<p>{{ island.name }}</p>
+							{% endfor %}
+						</div>
+						<div class="parcours-titre-icone">
+
+							<img class="icon-tags" src="{{ asset('svg/tag.svg') }}" alt="Icone tags">
+							<p>Tags :</p>
+
+							{% for tag in route.tags %}
+								<p>{{ tag.name }}</p>
+							{% endfor %}
+						</div>
+
+						<p class="profil-text-parcours">
+							<a class="profil-text-parcours" href="{{ path('routeOne', {'id': route.id}) }}">Voir le parcours</a>
+						</p>
+
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

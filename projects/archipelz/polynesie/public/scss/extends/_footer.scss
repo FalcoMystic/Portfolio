@@ -1,0 +1,48 @@
+@use "../base/variables" as v;
+
+footer {
+	margin-top: 100px;
+}
+
+.footer-menu {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 20px;
+	min-height: 200px;
+	padding: 0 50px;
+	background-color: v.$gris-fonce;
+}
+
+.footer-menu a {
+	font-size: 1.5rem;
+	color: v.$blanc;
+}
+
+.footer-credits {
+	display: none;
+}
+
+@media (max-width: 700px) {
+	.footer-menu {
+		justify-content: center;
+		padding: 20px;
+		flex-wrap: wrap;
+		min-height: 170px;
+	}
+
+	.footer-link--desktop {
+		display: none;
+	}
+
+	.footer-link--legal {
+		display: inline-block;
+	}
+
+	.footer-credits {
+		display: block;
+		color: v.$blanc;
+		text-align: center;
+		margin: 0 auto;
+	}
+}

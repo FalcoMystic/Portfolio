@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        window.tagCreateUrl = "{{ path('tag_create') }}";
+    </script>
+    <script src="{{ asset('js/tag_add.js') }}" defer></script>
+    <script>
+        window.markersData = {{ markers|map(m => {
+            'id': m.id,
+            'lat': m.latitude,
+            'lng': m.longitude,
+            'title': m.title ?? m.speciesName ?? 'Inconnu',
+            'photo': m.photoUrl,
+            'description': m.description
+        })|json_encode|raw }};
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+	<script src="{{ asset('js/map_add.js') }}" defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKefB-llhthKebD0v2gGePgLF3fh1n1WE&callback=initMap"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="page-parcours-creer">
+    <section class="parcours-creer">
+        <h2 class= "titre-parcours">Creer un parcours</h2>
+
+        {{ form_start(form, {'attr': {'class': 'parcours-creer-form'}}) }}
+            {{ form_row(form.title) }}
+            {{ form_row(form.description) }}
+
+            <div class="duration">
+                <label>Duree</label>
+                <div class="duration-ligne">
+                    <input type="number" name="duration_h" min="0" placeholder="Heures">
+                    <input type="number" name="duration_m" min="0" max="59" placeholder="Minutes">
+                </div>
+            </div>
+
+            {{ form_row(form.for_disabled) }}
+            {{ form_row(form.tags) }}
+
+            <div class="tag">
+                <input type="text" id="new_tag_name" placeholder="Nouveau tag...">
+                <button type="button" id="btn_add_tag">Ajouter</button>
+                <span id="tag_feedback"></span>
+            </div>
+
+            <input type="hidden" name="selected_markers" id="selected_markers" value="[]">
+
+            {# Liste des markers sélectionnés #}
+            <div id="markers-selectionnes">
+                <h4>Nombre de marqueurs selectionnés: <span id="compteur">0</span></h4>
+                <ul id="liste-markers" class"liste-markers-parcours-creer"></ul>
+            </div>
+
+            <button type="submit" class="envoie-parcours">Creer le parcours</button>
+        {{ form_end(form) }}
+    </section>
+
+    <section class="parcours-map">
+        <h2>Selectionner les marqueurs sur la carte</h2>
+        <div id="carte"></div>
+    </section>
+</div>
+
+{% endblock %}

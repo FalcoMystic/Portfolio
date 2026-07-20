@@ -1,0 +1,80 @@
+@use '../base/variables' as v;
+
+.page-parcours {
+    display: flex;
+    gap: 220px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.icon-archipel, .icon-iles, .icon-tags {
+    width: 24px;
+    height: 24px;
+}
+
+.titre-icone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.infos-ligne {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    line-height: 1.2;
+    gap: 8px;
+}
+
+.infos-ligne p {
+    margin: 0;
+}
+
+.container-parcours {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 700px;
+    margin: 0;
+    gap: 16px;
+}
+
+.text-parcours {
+    padding-top: 12px;
+}
+
+.contour-tag {
+    background-color: v.$noir;
+    color: v.$blanc;
+    padding: 7px 10px;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.parcours-icone {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.titre-parcours {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .titre-parcours {
+        display: block;
+        text-align: center;
+    }
+
+    .page-parcours {
+        flex-direction: column;
+        align-content: center;
+        gap: 40px;
+        padding: 25px;
+    }
+
+    .container-parcours {
+        max-width: 80%;
+    }
+}

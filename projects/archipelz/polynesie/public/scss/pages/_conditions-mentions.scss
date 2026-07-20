@@ -1,0 +1,49 @@
+.legal-page {
+	min-height: 100vh;
+	padding: 40px 20px;
+	background-color: #f5f5f5;
+}
+
+.legal-page h1 {
+	font-size: 2.5em;
+	margin-bottom: 30px;
+	color: #333;
+	text-align: center;
+}
+
+.legal-section {
+	margin-bottom: 30px;
+	line-height: 1.8;
+}
+
+.legal-section h2 {
+	font-size: 1.5em;
+	color: #0066cc;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #0066cc;
+}
+
+.legal-section p {
+	color: #555;
+	margin-bottom: 12px;
+}
+
+.legal-section ul {
+	margin-left: 20px;
+	color: #555;
+}
+
+.legal-section li {
+	font-family: 'Manrope-Regular';
+	font-size: 1.3rem;
+	margin-bottom: 10px;
+}
+
+.legal-footer {
+	text-align: center;
+	margin-top: 50px;
+	padding-top: 20px;
+	border-top: 1px solid #ddd;
+	color: #999;
+}

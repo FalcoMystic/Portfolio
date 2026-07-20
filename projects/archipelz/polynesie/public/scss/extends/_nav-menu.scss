@@ -1,0 +1,53 @@
+@use "../base/variables" as v;
+
+header {
+	position: sticky;
+	top: 30px;
+	left: 0;
+	z-index: 1000;
+}
+
+.nav-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+
+	margin: 30px auto 0px;
+	width: 90%;
+	height: 60px;
+	padding: 20px;
+
+	background-color: v.$blanc;
+	color: v.$noir;
+	border: 2px solid v.$noir;
+	background-color: v.$blanc;
+	box-shadow: 5px 5px 0.1px v.$noir;
+
+	z-index: 2;
+	position: relative;
+}
+
+.nav-menu-flex {
+	display: flex;
+	gap: 20px;
+}
+
+.base-logo {
+	width: auto;
+	height: 90px;
+	margin-left: 20px;
+}
+
+.nav-menu a,
+.nav-menu p,
+.nav-menu strong {
+	color: v.$noir;
+	font-size: 2rem;
+}
+
+@media (max-width: 700px) {
+	.nav-menu {
+		display: none;
+	}
+}

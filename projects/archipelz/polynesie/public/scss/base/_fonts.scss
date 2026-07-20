@@ -1,0 +1,298 @@
+@use '../base/variables' as v;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+a {
+	font-family: 'Supreme-Bold';
+}
+
+h1 {
+	font-size: 5rem;
+}
+
+h2 {
+	font-size: 3rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+p,
+li,
+input,
+textarea {
+	font-family: 'Manrope-Regular';
+	font-size: 1.3rem;
+}
+
+th {
+	font-family: 'Manrope-Regular';
+	font-size: 1rem;
+	text-align: center;
+	padding: 0.3rem;
+}
+
+td {
+	font-family: 'Manrope-Regular';
+	font-size: 1rem;
+	text-align: left;
+	padding: 0.3rem;
+}
+
+label {
+	font-family: 'Manrope-Semibold';
+}
+
+/* Importation des Polices */
+
+/* - Supreme - */
+
+@font-face {
+	font-family: 'Supreme-Thin';
+	src:
+		url('../../fonts/supreme/Supreme-Thin.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Thin.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-ThinItalic';
+	src:
+		url('../../fonts/supreme/Supreme-ThinItalic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-ThinItalic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-ThinItalic.ttf') format('truetype');
+	font-weight: 100;
+	font-display: swap;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Supreme-Extralight';
+	src:
+		url('../../fonts/supreme/Supreme-Extralight.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Extralight.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Extralight.ttf') format('truetype');
+	font-weight: 200;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-ExtralightItalic';
+	src:
+		url('../../fonts/supreme/Supreme-ExtralightItalic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-ExtralightItalic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-ExtralightItalic.ttf') format('truetype');
+	font-weight: 200;
+	font-display: swap;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Supreme-Light';
+	src:
+		url('../../fonts/supreme/Supreme-Light.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Light.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-LightItalic';
+	src:
+		url('../../fonts/supreme/Supreme-LightItalic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-LightItalic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-LightItalic.ttf') format('truetype');
+	font-weight: 300;
+	font-display: swap;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Supreme-Regular';
+	src:
+		url('../../fonts/supreme/Supreme-Regular.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Regular.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-Italic';
+	src:
+		url('../../fonts/supreme/Supreme-Italic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Italic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Supreme-Medium';
+	src:
+		url('../../fonts/supreme/Supreme-Medium.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Medium.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-MediumItalic';
+	src:
+		url('../../fonts/supreme/Supreme-MediumItalic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-MediumItalic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-MediumItalic.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Supreme-Bold';
+	src:
+		url('../../fonts/supreme/Supreme-Bold.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Bold.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-BoldItalic';
+	src:
+		url('../../fonts/supreme/Supreme-BoldItalic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-BoldItalic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-BoldItalic.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Supreme-Extrabold';
+	src:
+		url('../../fonts/supreme/Supreme-Extrabold.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Extrabold.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Extrabold.ttf') format('truetype');
+	font-weight: 800;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-ExtraboldItalic';
+	src:
+		url('../../fonts/supreme/Supreme-ExtraboldItalic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-ExtraboldItalic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-ExtraboldItalic.ttf') format('truetype');
+	font-weight: 800;
+	font-display: swap;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Supreme-Variable';
+	src:
+		url('../../fonts/supreme/Supreme-Variable.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-Variable.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-Variable.ttf') format('truetype');
+	font-weight: 100 800;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Supreme-VariableItalic';
+	src:
+		url('../../fonts/supreme/Supreme-VariableItalic.woff2') format('woff2'),
+		url('../../fonts/supreme/Supreme-VariableItalic.woff') format('woff'),
+		url('../../fonts/supreme/Supreme-VariableItalic.ttf') format('truetype');
+	font-weight: 100 800;
+	font-display: swap;
+	font-style: italic;
+}
+
+/* - Manrope - */
+
+@font-face {
+	font-family: 'Manrope-ExtraLight';
+	src:
+		url('../../fonts/manrope/Manrope-ExtraLight.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-ExtraLight.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-ExtraLight.ttf') format('truetype');
+	font-weight: 200;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Manrope-Light';
+	src:
+		url('../../fonts/manrope/Manrope-Light.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-Light.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Manrope-Regular';
+	src:
+		url('../../fonts/manrope/Manrope-Regular.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-Regular.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Manrope-Medium';
+	src:
+		url('../../fonts/manrope/Manrope-Medium.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-Medium.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Manrope-SemiBold';
+	src:
+		url('../../fonts/manrope/Manrope-SemiBold.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-SemiBold.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Manrope-Bold';
+	src:
+		url('../../fonts/manrope/Manrope-Bold.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-Bold.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Manrope-ExtraBold';
+	src:
+		url('../../fonts/manrope/Manrope-ExtraBold.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-ExtraBold.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-ExtraBold.ttf') format('truetype');
+	font-weight: 800;
+	font-display: swap;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Manrope-Variable';
+	src:
+		url('../../fonts/manrope/Manrope-Variable.woff2') format('woff2'),
+		url('../../fonts/manrope/Manrope-Variable.woff') format('woff'),
+		url('../../fonts/manrope/Manrope-Variable.ttf') format('truetype');
+	font-weight: 200 800;
+	font-display: swap;
+	font-style: normal;
+}
+
+/* Fin de l'importation des Polices */

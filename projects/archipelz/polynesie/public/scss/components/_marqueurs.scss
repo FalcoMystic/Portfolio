@@ -1,0 +1,67 @@
+@use '../base/variables' as v;
+
+#liste-markers {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	& li {
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		border-radius: 10px;
+		padding: 10px 3px;
+		align-items: center;
+		margin: 8px 0;
+		gap: 8px;
+	}
+
+	& strong {
+		font-family: 'Manrope-Regular';
+		text-align: center;
+		color: v.$noir;
+		width: 200px;
+	}
+
+	& input,
+	textarea {
+		width: 200px;
+		height: 50px;
+		border-radius: 10px;
+		margin: 0;
+		padding: 10px;
+	}
+
+	& button {
+		width: 30px;
+		height: 30px;
+		border-radius: 10px;
+	}
+}
+
+@media (max-width: 700px) {
+	#liste-markers {
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.drag-handle svg path:last-child {
+			fill: v.$blanc;
+		}
+
+		& li {
+			flex-direction: column;
+			text-align: center;
+			border-radius: 15px;
+			padding: 30px 0;
+			background-color: v.$bleu;
+		}
+
+		& input,
+		textarea {
+			min-height: 36px;
+		}
+	}
+}

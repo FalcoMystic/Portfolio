@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<div class="container c-profil-edit">
+		<h1 class="profil-edit-h1">Modifier votre profil</h1>
+
+    {% for message in app.flashes('success_edit') %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+
+		{{ form_start(form) }}
+
+		{{ form_row(form.email, {
+				label: 'Titre',
+				attr: {class: 'profil-edit-champ'},
+                row_attr: {class: 'espacement-champ'}
+			}) }}
+
+		<div class="espacement-champ">
+			{{ form_label(form.plainPassword.first, 'Nouveau mot de passe') }}
+			{{ form_widget(form.plainPassword.first, {
+                attr: {class: 'profil-edit-champ'},
+                row_attr: {class: 'espacement-champ'}
+            }) }}
+		</div>
+
+		<div class="espacement-champ">
+
+			{{ form_label(form.plainPassword.second, 'Confirmer le mot de passe') }}{{ form_widget(form.plainPassword.second, {
+                attr: {class: 'profil-edit-champ'},
+                row_attr: {class: 'espacement-champ'}
+                }) }}
+		</div>
+
+
+		<button class="btn-save-profil-edit">
+			Enregistrer</button>
+
+		{{ form_end(form) }}
+		<a href="{{ path('app_profile') }}">Revenir au profil</a>
+
+	</div>
+
+
+{% endblock %}

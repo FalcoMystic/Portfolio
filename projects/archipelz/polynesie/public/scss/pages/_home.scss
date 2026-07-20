@@ -1,0 +1,148 @@
+@use "../base/variables" as v;
+
+.accueil-h1 {
+	text-shadow: 5px 5px 0.2px v.$noir;
+}
+
+.fullscreen-home {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	overflow: hidden;
+	z-index: 1;
+	top: -193px;
+}
+
+.fullscreen-home__image {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
+}
+
+.fullscreen-home h1 {
+	width: 800px;
+	margin-left: 200px;
+	position: relative;
+	z-index: 1;
+	color: v.$blanc;
+}
+
+.accueil-h2 {
+	text-align: center;
+	margin: 70px 0 130px;
+	font-size: 4rem;
+}
+
+.c-presentation {
+	margin: auto;
+}
+
+.img-home {
+	width: 50%;
+	height: auto;
+	border: 3px solid v.$noir;
+	box-shadow: 8px 8px 0.1px v.$noir;
+	flex: 1;
+}
+
+.home-text {
+	border: 2px solid v.$noir;
+	box-shadow: 5px 5px 0.1px v.$noir;
+	padding: 25px;
+
+	flex: 1;
+	width: 50%;
+}
+
+.c-presentation p {
+	line-height: 1.5;
+}
+
+.top-part-presentation,
+.bottom-part-presentation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 60px;
+}
+
+.c-faq {
+	margin: 50px auto;
+	justify-content: flex-start;
+}
+
+.c-faq h2 {
+	text-align: left;
+}
+
+.questions {
+	width: 100%;
+	margin: 10px;
+}
+
+.visible-pannel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 2px solid v.$noir;
+	box-shadow: 5px 5px 0.1px v.$noir;
+	color: v.$noir;
+	position: relative;
+	padding: 20px;
+	z-index: 100;
+}
+
+.visible-pannel img {
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.toggle-pannel {
+	padding: 0 15px;
+	height: 0;
+	opacity: 0;
+}
+
+.toggle-pannel {
+	line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+	.fullscreen-home,
+	.fullscreen-home h1 {
+		margin-left: 20px;
+		width: 80%;
+		text-align: left;
+		position: static;
+	}
+
+	.top-part-presentation,
+	.bottom-part-presentation {
+		display: block;
+		text-align: center;
+	}
+
+	.img-home {
+		width: 100%;
+		margin: 50px 0 0 0;
+	}
+
+	.c-presentation p {
+		width: 90%;
+	}
+
+	.img-home {
+		border: 2px solid black;
+	}
+
+	.home-image-2 {
+		display: none;
+	}
+}

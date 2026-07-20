@@ -1,0 +1,54 @@
+/*Button CONNEXION */
+
+@use '../base/variables' as v;
+
+.btn-connexion {
+    width: 10%;
+	background-color: v.$bleu;
+	padding: 8px 10px;
+	border-radius: 6px;
+	color: v.$blanc;
+}
+
+.btn-parcours{
+    color: v.$rouge-clair;
+}
+
+/*Button PARCOURS */
+#btn_add_tag,
+.envoie-parcours {
+    background: v.$bleu-nuit;
+    color: v.$blanc;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-favori,
+.btn-modification,
+.btn-suppression,
+.btn-add-review {
+    font-family: "Manrope-Regular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    color: v.$blanc;
+    padding: 10px;
+    background-color: v.$bleu;
+    cursor: pointer;
+}
+
+.btn-favori {
+    background-color: v.$jaune;
+}
+
+.btn-suppression {
+    background-color: v.$rouge-clair;
+}
+
+.btn-add-review{
+    font-size: 20px;
+}

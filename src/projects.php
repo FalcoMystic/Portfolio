@@ -1,6 +1,6 @@
 <?php
 
-$projects = [
+$projects_web = [
     [
         'id' => 1,
         'titre' => 'Netflix',
@@ -57,7 +57,53 @@ $projects = [
             'img/vinyle/8.png',
         ]
     ],
+    [
+        'id' => 5,
+        'titre' => 'Archipelz',
+        'desc_courte' => 'Dernière SAE de WEB du S4, j\'ai développé un site web sur les îles et archipels de la Polynésie française. Je me suis occupé de la partie front-end du projet en réalisant les maquettes et en intégrant les différentes pages du site tout en m\'inspirant de la direction artistique de Mario Sunshine.',
+        'date' => 'Mars 2026',
+        'lien' => 'projects/archipelz/polynesie/templates/home.html.twig',
+        'photos' => [
+            'img/archipelz/1.png',
+            'img/archipelz/2.png',
+            'img/archipelz/3.png',
+            'img/archipelz/4.png',
+            'img/archipelz/5.png',
+            'img/archipelz/6.png',
+            'img/archipelz/7.png',
+        ]
+    ],
+    [
+        'id' => 6,
+        'titre' => 'Snake',
+        'desc_courte' => 'Un rendu pour le module GAME où j\'ai réalisé une version du jeu Snake, j\'y ai intégré le mode de jeu classique, ainsi qu\'un mode Time Attack et Tunnels.',
+        'date' => 'Avril 2026',
+        'lien' => 'projects/snake/index.html',
+        'photos' => [
+            'img/snake/1.png',
+            'img/snake/2.png',
+            'img/snake/3.png',
+        ]
+    ],
 ];
+
+$projects_game = [
+    [
+        'id' => 7,
+        'titre' => 'I See You',
+        'desc_courte' => 'Mon premier projet où j\'ai conçu un jeu vidéo dans une équipe de 4 personnes. J\'ai pu modéliser l\'environnement de mon niveau et des items comme la lampe torche sur Blender, créer des scripts pour le fonctionnement de certaines actions et assembler le tout sur Unity.',
+        'date' => 'Avril 2026',
+        'lien' => 'projects/netflix/isy/#',
+        'photos' => [
+            'img/isy/1.png',
+            'img/isy/2.png',
+            'img/isy/3.png',
+        ]
+    ],
+];
+
+// Combiner tous les projets
+$projects = array_merge($projects_web, $projects_game);
 
 // $projects_en = [
 //     [

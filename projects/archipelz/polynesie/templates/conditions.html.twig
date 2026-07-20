@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conditions d'Utilisation - Archipelz
+{% endblock %}
+
+{% block body %}
+	<main class="legal-page">
+		<div class="container">
+			<h1>Conditions d'Utilisation</h1>
+
+			<section class="legal-section">
+				<h2>1. Objet</h2>
+				<p>
+					Les présentes Conditions d'Utilisation régissent l'accès et l'utilisation de la plateforme 
+														Archipelz, un projet scolaire destiné à permettre aux utilisateurs de consulter 
+														et de créer des parcours de découverte.
+				</p>
+			</section>
+
+			<section class="legal-section">
+				<h2>2. Acceptation des conditions</h2>
+				<p>
+					En accédant à ce site, vous acceptez sans réserve l'ensemble de ces conditions d'utilisation. 
+														Si vous n'acceptez pas ces conditions, veuillez cesser immédiatement l'utilisation d'Archipelz.
+				</p>
+			</section>
+
+			<section class="legal-section">
+				<h2>3. Accès et inscription</h2>
+				<p>
+					Pour accéder à certaines fonctionnalités d'Archipelz, vous devez créer un compte utilisateur. 
+														Vous vous engagez à :
+				</p>
+				<ul>
+					<li>Fournir des informations exactes et à jour lors de votre inscription</li>
+					<li>Garder confidentiels votre identifiant et votre mot de passe</li>
+					<li>Être responsable de toutes les activités effectuées via votre compte</li>
+					<li>Notifier immédiatement en cas d'accès non autorisé à votre compte</li>
+				</ul>
+			</section>
+
+			<section class="legal-section">
+				<h2>4. Utilisation autorisée</h2>
+				<p>Vous vous engagez à utiliser Archipelz uniquement à des fins légales et légitime. Il vous est interdit :</p>
+				<ul>
+					<li>De violer les lois applicables</li>
+					<li>De télécharger, modifier ou distribuer les contenus sans autorisation</li>
+					<li>De créer des comptes multiples ou d'usurper l'identité d'une autre personne</li>
+					<li>De poster du contenu offensant, diffamatoire ou contraire à l'ordre public</li>
+					<li>De tenter d'accéder à des zones sécurisées sans autorisation</li>
+					<li>De surcharger le serveur ou perturber le fonctionnement normal du site</li>
+					<li>De collecter automatiquement des données sans autorisation</li>
+				</ul>
+			</section>
+
+			<section class="legal-section">
+				<h2>5. Contenu utilisateur</h2>
+				<p>
+					Les parcours et contenus que vous créez sur Archipelz demeurent votre propriété. En publiant du contenu, 
+														vous accordez à Archipelz une licence d'utilisation pour héberger, afficher et reproduire votre contenu 
+														sur la plateforme.
+				</p>
+				<p>
+					Vous êtes responsable du contenu que vous publiez et garantissez que ce contenu :
+				</p>
+				<ul>
+					<li>Ne viole pas les droits d'auteur ou droits de tiers</li>
+					<li>N'est pas offensant, illégal ou contraire à l'éthique</li>
+					<li>Est exact et conforme à la réalité</li>
+				</ul>
+			</section>
+
+			<section class="legal-section">
+				<h2>6. Propriété intellectuelle</h2>
+				<p>
+					Tous les éléments du site (code source, design, logos, textes) sont protégés par les droits d'auteur. 
+														Vous ne pouvez pas reproduire ou modifier ces éléments sans autorisation explicite.
+				</p>
+				<p>
+					Images : Les images présentes sur Archipelz ne sont pas libres de droits. 
+														Leur utilisation est strictement limitée à la plateforme et à des fins pédagogiques.
+				</p>
+			</section>
+
+			<section class="legal-section">
+				<h2>7. Protection des données personnelles (RGPD)</h2>
+				<p>
+					<strong>Responsable :</strong>
+					Archipelz |
+					<strong>Données :</strong>
+					Email et mot de passe (chiffré) |
+					<strong>Base légale :</strong>
+					Votre consentement |
+					<strong>Durée :</strong>
+					Permanente
+				</p>
+				<p>
+					<strong>Finalités :</strong>
+					Créer votre compte, vous authentifier et accéder à vos contenus.
+				</p>
+				<p>
+					<strong>Sous-traitants :</strong>
+					Plesk (hébergement) et GitLab (gestion du code).
+				</p>
+				<p>
+					<strong>Vos droits :</strong>
+					Accès, rectification, suppression (droit à l'oubli), portabilité, limitation et opposition.
+				</p>
+				<p>
+					Pour exercer vos droits ou pour toute question :
+					<strong>archipelz@gmail.com</strong>
+				</p>
+			</section>
+
+			<section class="legal-section legal-footer">
+				<p>
+					<em>Dernière mise à jour :
+						{{ "now"|date("d/m/Y") }}</em>
+				</p>
+			</section>
+		</div>
+	</main>
+{% endblock %}

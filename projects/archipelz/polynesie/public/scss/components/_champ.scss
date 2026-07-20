@@ -1,0 +1,19 @@
+@use '../base/variables' as v;
+
+/* champs parcours créer */
+
+.parcours-creer-form input,
+.parcours-creer-form textarea {
+	width: 90%;
+	padding: 8px;
+	border: 1px solid v.$bleu-nuit;
+	border-radius: 6px;
+}
+
+.champ {
+	min-height: 30px;
+	font-size: 20px;
+	border-radius: 10px;
+	border: 2px solid v.$noir;
+	padding: 6px 0 6px 15px;
+}

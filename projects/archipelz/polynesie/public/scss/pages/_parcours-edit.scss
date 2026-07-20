@@ -1,0 +1,96 @@
+@use "../base/variables" as v;
+
+.c-parcours-edit {
+	display: flex;
+	gap: 30px;
+	flex-direction: column;
+	margin: auto;
+	width: 900px;
+}
+
+.parcours-edit-category,
+.parcours-edit-category label {
+	font-family: "Supreme-Bold";
+	font-size: 2rem;
+}
+
+.parcours-edit-champ,
+.parcours-edit-champ-desc {
+	font-family: "Manrope-Regular";
+}
+
+.parcours-edit-champ-titre {
+	min-height: 50px;
+	width: 100%;
+	font-size: 26px;
+	border-radius: 10px;
+	border: 2px solid v.$noir;
+	padding: 6px 0 6px 15px;
+}
+
+.parcours-edit-champ {
+	width: 100px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: 2px solid v.$noir;
+	padding: 6px 0 6px 15px;
+}
+
+.parcours-edit-group-tag {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.parcours-edit-group-tag > #btn_add_tag {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	border-radius: 10px;
+	color: v.$blanc;
+	font-size: 16px;
+	padding: 10px;
+	background-color: v.$bleu;
+	cursor: pointer;
+}
+
+.parcours-edit-champ-tag {
+	width: 200px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: 2px solid v.$noir;
+	padding: 6px 0 6px 15px;
+}
+
+.parcours-edit-champ-desc {
+	min-height: 200px;
+	width: 100%;
+	font-size: 16px;
+	border-radius: 10px;
+	border: 2px solid v.$noir;
+	padding: 15px 0 15px 15px;
+}
+
+.parcours-edit-checkbox {
+	accent-color: v.$bleu;
+	margin-top: 15px;
+}
+
+.btn-save-parcours-edit {
+	display: flex;
+	justify-content: center;
+	border: none;
+	border-radius: 10px;
+	color: v.$blanc;
+	font-size: 24px;
+	padding: 10px;
+	background-color: v.$bleu;
+	cursor: pointer;
+}
+
+@media (max-width: 700px) {
+	.c-parcours-edit {
+		width: 100%;
+	}
+}

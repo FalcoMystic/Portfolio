@@ -1,0 +1,103 @@
+@use '../base/variables' as v;
+
+.backoffice {
+    display: flex;
+    min-height: 90vh;
+
+    &__title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__aside {
+        max-width: 300px;
+        flex: 1;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+        border-right: 2px solid black;
+
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__item {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    &__content {
+        flex: 1;
+        padding: 2rem 1rem;
+    }
+
+    &__subtitle {
+        margin-bottom: 2rem;
+    }
+
+    &__table {
+        flex-wrap: nowrap;
+        margin-bottom: 3rem;
+        width: 100%;
+    }
+
+    &__tableline {
+        max-height: 50px;
+
+        & td {
+            text-align: center;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+    }
+
+    &__buttoncontainer {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.5rem;
+
+        &--left {
+            justify-content: left;
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        cursor: pointer;
+
+        border: 0px;
+        padding: 0.5rem 0.5rem;
+        border-radius: 10px;
+        color: white;
+
+        &--show {
+            background-color: v.$bleu ;
+        }
+
+        &--edit {
+            background-color: rgb(79, 172, 79) ;
+        }
+
+        &--new {
+            background-color: v.$bleu ;
+        }
+
+        &--del {
+            background-color: v.$rouge ;
+        }
+
+        &--return {
+            background-color: v.$bleu ;
+        }
+    }
+}

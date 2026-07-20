@@ -1,0 +1,15 @@
+@use '../base/variables' as v;
+
+.parcours-review-champ {
+	min-height: 300px;
+	font-size: 20px;
+	border-radius: 10px;
+	border: 2px solid v.$noir;
+	padding: 6px 0 6px 15px;
+}
+
+@media  (max-width: 700px) {
+	.details-parcours-back {
+		margin-top: 70px;
+	}
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script type="module" src="/src/main.js" defer></script>
+		<title>Vite App</title>
+	</head>
+
+	<body>
+		<!-- Menu principal -->
+		<div id="menu" class="menu">
+			<h1>Snake Game</h1>
+			<div class="menu-buttons">
+				<button id="modeNormal" class="mode-btn">Mode Normal</button>
+				<button id="modeTunnels" class="mode-btn">Mode Tunnels</button>
+				<button id="modeTimeAttack" class="mode-btn">Mode Time Attack</button>
+			</div>
+		</div>
+
+		<!-- Écran de jeu -->
+		<div id="gameScreen" style="display: none">
+			<h1 id="gameOver" style="display: none; text-align: center">
+				Partie perdue
+			</h1>
+			<div id="app">
+				<div id="score">Score: 0</div>
+				<div id="timer" style="display: none">Temps: 60</div>
+				<div id="collectibles" style="display: none">Collectibles: 0/10</div>
+				<canvas id="terrain" width="800" height="800"></canvas>
+			</div>
+			<div id="buttonContainer" style="display: none">
+				<button id="menuBtn" class="game-btn">Menu</button>
+				<button id="restartBtn" class="game-btn">Rejouer</button>
+			</div>
+		</div>
+	</body>
+</html>

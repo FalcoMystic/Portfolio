@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="backoffice">
+
+        <aside class="backoffice__aside">
+
+            <h1 class="backoffice__title">Backoffice</h1>
+
+            <nav>
+                <ul class="backoffice__nav">
+                    <li class="backoffice__item"><a href="{{ path('app_user_index') }}">Users</a></li>
+                    <li class="backoffice__item"><a href="{{ path('app_review_index') }}">Reviews</a></li>
+                    <li class="backoffice__item"><a href="{{ path('app_route_index') }}">Routes</a></li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <div class="backoffice__content">
+
+        {% block backoffice %}
+
+        <h2 class="backoffice__subtitle">Bienvenue<h2>
+
+        <p>Ce back-office vous permet d'entièrement vous occuper des utilisateurs, des parcours et des avis !<p>
+
+        {% endblock %}
+
+        </div>
+
+    </section>
+
+
+{% endblock %}

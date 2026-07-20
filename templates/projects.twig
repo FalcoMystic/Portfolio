@@ -1,11 +1,16 @@
 {% extends 'index.twig' %}
 {% block main %}
+
 	<h1 class="title-projects-page">
 		Mes Projets
 	</h1>
+
+
+	<h2>Développement Web</h2>
+
 	<div class="list-projects">
-		{% for project in projects %}
-			<div class="card-projects">
+		{% for project in projects_web %}
+			<a href="project.php?id={{ project.id }}" class="card-projects" data-tilt data-tilt-max="3" data-tilt-speed="800" data-tilt-perspective="1500">
 				<div class="top-part-projects">
 					<h2 class="title-projects">
 						{{ project.titre }}
@@ -14,15 +19,38 @@
 						{{ project.date }}
 					</p>
 				</div>
-				<div class="bottom-part-projects">
-					<p class="desc-projects">
-						{{ project.desc_courte }}
-					</p>
-					<a href="project.php?id={{ project.id }}" class="details-project">
-						En savoir plus
-					</a>
+				<p class="desc-projects">
+					{{ project.desc_courte }}
+				</p>
+				<div class="details-project">
+					Cliquez pour en savoir plus !
 				</div>
-			</div>
+			</a>
 		{% endfor %}
 	</div>
+
+
+	<h2 class="DI-titre">Dispositifs Intéractifs - Jeu</h2>
+
+	<div class="list-projects">
+		{% for project in projects_game %}
+			<a href="project.php?id={{ project.id }}" class="card-projects" data-tilt data-tilt-max="3" data-tilt-speed="800" data-tilt-perspective="1500">
+				<div class="top-part-projects">
+					<h2 class="title-projects">
+						{{ project.titre }}
+					</h2>
+					<p class="date-projects">
+						{{ project.date }}
+					</p>
+				</div>
+				<p class="desc-projects">
+					{{ project.desc_courte }}
+				</p>
+				<div class="details-project">
+					Cliquez pour en savoir plus !
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+
 {% endblock %}

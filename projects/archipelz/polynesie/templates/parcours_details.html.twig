@@ -1,0 +1,187 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+	<script>
+		window.markersOrder = {{ route.markersOrder ? route.markersOrder|json_encode|raw : '[]' }};
+window.markersData = {{ markers|map(m => {
+		'id': m.id,
+        'lat': m.latitude,
+        'lng': m.longitude,
+        'title': m.title ?? m.speciesName ?? 'Espèce inconnue',
+        'customTitle': m.title,
+        'photo': m.photoUrl,
+        'description': m.description ?? 'Aucune description disponible',
+        'customDescription': m.customDescription
+    })|json_encode|raw }};
+	</script>
+	<script src="{{ asset('js/map_details.js') }}" defer></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKefB-llhthKebD0v2gGePgLF3fh1n1WE&callback=initMap"></script>
+{% endblock %}
+
+{% block body %}
+
+	<div class="container c-details-parcours">
+
+		{# BOUTON RETOUR #}
+		<a class="details-parcours-sous-infos" href="{{ path('parcours') }}"><img class="details-parcours-icons" src="{{ asset('svg/back.svg') }}" alt="icon-duree">Retour en arrière</a>
+
+
+		<div class="details-parcours-top">
+			<h1 class="parcours-details-h1">{{ route.title }}</h1>
+			<div
+				class="details-parcours-option">
+				{# BOUTON MODIFIER #}
+				{% if app.user and app.user == route.user %}
+					<a class="btn-modification" href="{{ path('route_edit', {id: route.id}) }}">
+						<img src="{{ asset('svg/edit.svg') }}" alt"">
+					</a>
+
+					{% if app.user and route in app.user.favorites %}
+						<a class="btn-favori" href="{{ path('route_favorite', {id: route.id}) }}">
+							<img src="{{ asset('svg/bookmark_remove.svg') }}" alt"">
+						</a>
+					{% else %}
+						<a class="btn-favori" href="{{ path('route_favorite', {id: route.id}) }}">
+							<img src="{{ asset('svg/bookmark_add.svg') }}" alt"">
+						</a>
+					{% endif %}
+
+
+					{# BOUTON SUPPRIMER #}
+					<form method="post" action="{{ path('route_delete', {id: route.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce parcours ?')">
+						<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ route.id) }}">
+						<button class="btn-suppression" type="submit">
+							<img src="{{ asset('svg/delete.svg') }}" alt"">
+
+
+						</button>
+					</form>
+				{% endif %}
+
+
+			</div>
+		</div>
+
+
+		<div class="details-parcours-middle">
+			<div class="details-parcours-infos">
+				<div class="details-parcours-desc">
+					<p>{{ route.description}}</p>
+				</div>
+				<div class="details-parcours-sous-infos">
+					<img class="details-parcours-icons" src="{{ asset('img/cocotier.png') }}" alt="icon-archipel">
+
+					{% for archipelago in archipelagos %}
+						<p>{{ archipelago.name}},</p>
+					{% else %}
+						<p>
+							Aucune archipel est associé à ce parcours.
+						</p>
+					{% endfor %}
+				</div>
+
+				<div class="details-parcours-sous-infos">
+					<img class="details-parcours-icons" src="{{ asset('svg/route.svg') }}" alt="icon-route">
+
+					{% for island in islands %}
+
+						<p>{{ island.name}},</p>
+					{% else %}
+						<p>
+							Aucune île est associé à ce parcours.
+						</p>
+
+
+					{% endfor %}
+				</div>
+
+
+				<div class="details-parcours-sous-infos">
+					<img class="details-parcours-icons" src="{{ asset('svg/duree.svg') }}" alt="icon-duree">
+					<p>
+						Durée moyenne :
+						{{ route.duration ? route.duration|date('H:i') : '' }}
+					</p>
+				</div>
+				<div class="details-parcours-sous-infos">
+
+					<img class="details-parcours-icons" src="{{ asset('svg/disabled.svg') }}" alt="icon-handicap">
+
+					<p>
+						{{ route.forDisabled ? 'Adapté aux personnes en situation de handicap !' : 'Non adapté aux personnes en situation de handicap.' }}
+					</p>
+				</div>
+				<ul>
+					<div class="details-parcours-sous-infos">
+						<img class="details-parcours-icons" src="{{ asset('svg/tag.svg') }}" alt="icon-tag">
+
+						{% for tag in tags %}
+
+							<p>{{ tag.name}},</p>
+						{% else %}
+							<p>
+								Aucun tag est associé à ce parcours.
+							</p>
+						{% endfor %}
+					</div>
+
+				</ul>
+
+				<div class="parcours-details-modification">
+					<p>Date de création :
+						{{ route.creationDate ? route.creationDate|date('Y-m-d H:i:s') : '' }}</p>
+					<p>Dernière mise à jour :
+						{{ route.lastModified ? route.lastModified|date('Y-m-d H:i:s') : '' }}</p>
+				</div>
+			</div>
+
+
+			<div class="details-parcours-carte">
+				<style>
+					#carte {
+						height: 400px;
+					}
+				</style>
+
+				<div class="cadre" id="carte"></div>
+			</div>
+		</div>
+		<div class="details-parcours-bottom">
+
+			<div class="details-parcours-sous-infos">
+
+				<img class="details-parcours-icons details-parcours-avis-img" src="{{ asset('svg/user-connexion.svg') }}" alt="icon-handicap">
+				<h2>Avis</h2>
+			</div>
+
+
+			<div class="details-parcours-groupe-avis">
+
+				{% for review in reviews %}
+
+					<div class="carte-avis">
+
+						<div
+							class="carte-avis-top">
+							{# icon #}
+							<p>{{ review.user.email}}</p>
+							<p>{{ review.rating }}/10</p>
+						</div>
+						<div class="carte-avis-bottom">
+							<p>{{ review.description }}</p>
+							<p>{{ review.date|date('d/m/Y') }}</p>
+						</div>
+					</div>
+
+
+				{% else %}
+					<p>Aucun avis pour ce parcours.</p>
+				{% endfor %}
+			</div>
+
+		</div>
+
+		<a class="details-parcours-avis-btn" href="{{ path('route_review', {'id': route.id}) }}">Ajouter un avis</a>
+
+	</div>
+</div>{% endblock %}

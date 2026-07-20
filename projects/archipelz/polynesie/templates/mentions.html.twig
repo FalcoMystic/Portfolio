@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions Légales - Archipelz
+{% endblock %}
+
+{% block body %}
+	<main class="legal-page">
+		<div class="container">
+			<h1>Mentions Légales</h1>
+
+			<section class="legal-section">
+				<h2>1. Identification du site</h2>
+				<p>
+					Nom de l'application : Archipelz
+				</p>
+				<p>
+					Nature du projet : Projet scolaire (SAE 401)
+				</p>
+				<p>
+					Hébergement : Plesk - À titre d'évaluation pédagogique
+				</p>
+				<p>
+					Statut : Ce site est un projet d'étudiant hébergé temporairement à des fins d'évaluation 
+														et sera mis hors ligne après la période de notation.
+				</p>
+			</section>
+
+			<section class="legal-section">
+				<h2>2. Équipe de développement</h2>
+				<p>Ce projet a été développé par :</p>
+				<ul>
+					<li>Wittmann Manoly - Développement Frontend</li>
+					<li>Nguyen Luan - Développement Frontend</li>
+					<li>Giangreco Toni - Développement FullStack</li>
+				</ul>
+				<p>
+					<em>Ce projet a été réalisé dans le cadre d'une formation pédagogique 
+																et représente un exercice d'apprentissage en génie logiciel.</em>
+				</p>
+			</section>
+
+			<section class="legal-section">
+				<h2>3. Droits d'auteur et propriété intellectuelle</h2>
+				<p>
+					Le contenu original d'Archipelz (structure, code source, fonctionnalités) est la propriété 
+														des développeurs cités ci-dessus, réalisé dans un contexte d'apprentissage scolaire.
+				</p>
+				<p>
+					Droits des images : Les images présentes sur ce site ne sont pas libres de droits. 
+														Leur réutilisation sans autorisation est interdite. Ces images sont utilisées uniquement à des fins 
+														pédagogiques pour l'évaluation du projet.
+				</p>
+			</section>
+
+			<section class="legal-section">
+				<h2>4. Limitation de responsabilité</h2>
+				<p>
+					Ce site est fourni à titre informatif et pédagogique. Les développeurs et l'établissement scolaire 
+														ne peuvent être tenus responsables des :
+				</p>
+				<ul>
+					<li>Interruptions ou dysfonctionnements du service</li>
+					<li>Pertes de données ou données incomplètes</li>
+					<li>Dommages directs ou indirects résultant de l'utilisation du site</li>
+					<li>Inexactitudes ou erreurs du contenu</li>
+				</ul>
+			</section>
+
+			<section class="legal-section">
+				<h2>5. Données personnelles et RGPD</h2>
+				<p>
+					<strong>Responsable :</strong>
+					Archipelz |
+					<strong>Données :</strong>
+					Email et mot de passe |
+					<strong>Base légale :</strong>
+					Votre consentement |
+					<strong>Sous-traitants :</strong>
+					Plesk et GitLab
+				</p>
+				<p>
+					<strong>Vos droits :</strong>
+					Accès, rectification, suppression, portabilité, limitation et opposition.
+				</p>
+				<p>
+					Contactez :
+					<strong>archipelz@gmail.com</strong>
+					| Pour plus de détails, consultez nos
+					<strong>Conditions d'Utilisation</strong>, section 7.
+					<section class="legal-section">
+						<h2>6. Disponibilité du site</h2>
+						<p>
+							Statut temporaire : Ce site est hébergé sur Plesk à titre d'évaluation pédagogique. 
+																Il sera supprimé et mis hors ligne après la date d'évaluation. Aucun service de continuité n'est garanti 
+																au-delà de la péride d'évaluation.
+						</p>
+					</section>
+
+					<section class="legal-section">
+						<h2>7. Contact</h2>
+						<p>
+							Pour toute question concernant ce site ou ces mentions légales, veuillez consulter 
+																votre établissement scolaire responsable du projet Archipelz.
+						</p>
+					</section>
+
+					<section class="legal-section legal-footer">
+						<p>
+							<em>Dernière mise à jour :
+								{{ "now"|date("d/m/Y") }}</em>
+						</p>
+					</section>
+				</p>
+			</div>
+		</main>
+	{% endblock %}

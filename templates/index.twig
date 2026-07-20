@@ -8,11 +8,19 @@
 		<link rel="stylesheet" href="../css/style.css"/>
 		<script src="../js/script.js" defer></script>
 		<script src="../js/hamMenu.js" defer></script>
+		<script src="../js/three.r134.min.js" defer></script>
+		<script src="../js/vanta.dots.min.js" defer></script>
+		<script src="../js/vanta-init.js" defer></script>
+		<script src="../js/vanilla-tilt.js" defer></script>
 		<title>
 			Portfolio
 		</title>
 	</head>
+
+
 	<body>
+		<div id="vanta-dots"></div>
+
 		<div class="site">
 			<header>
 				<div class="off-screen-menu-phone">
@@ -54,7 +62,7 @@
 					<section class="second_section">
 						<div class="container">
 							<a href="./projects.php">
-								<div class="card">
+								<div class="card" data-tilt data-tilt-max="3" data-tilt-speed="800" data-tilt-perspective="1500">
 									<h2>
 										Projets
 									</h2>
@@ -65,7 +73,7 @@
 							</a>
 							<div class="bottom-part-home">
 								<a href="./about.php">
-									<div class="card">
+									<div class="card" data-tilt data-tilt data-tilt-max="4" data-tilt-speed="600" data-tilt-perspective="1000">
 										<h2>
 											A Propos
 										</h2>
@@ -75,7 +83,7 @@
 									</div>
 								</a>
 								<a href="./contact.php">
-									<div class="card">
+									<div class="card" data-tilt data-tilt data-tilt-max="4" data-tilt-speed="600" data-tilt-perspective="1000">
 										<h2>
 											Contact
 										</h2>
