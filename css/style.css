@@ -5,11 +5,11 @@
 
 /* Default Site Style */
 :root {
-  --text: #070e0b;
-  --background: #f4fbf8;
-  --primary: #3fca90;
-  --secondary: #95eac8;
-  --accent: #53e9ab;
+  --text: #f1f8f5;
+  --background: #1d1d1df3;
+  --primary: #7351aa;
+  --secondary: #a559c0;
+  --accent: #FFE79B;
 }
 
 /* Dark theme by user preference */
