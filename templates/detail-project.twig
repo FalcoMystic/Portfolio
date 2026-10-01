@@ -17,7 +17,7 @@
 				<p class="description">
 					{{ project.desc_courte }}
 				</p>
-				<a href="{{ project.lien }}" target="_blank" class="project-lien">
+				<a href="{% if project.id == 8 %}#model-viewer-modal{% elseif project.id == 7 %}#unity-game-modal{% else %}{{ project.lien }}{% endif %}" {% if project.id != 7 and project.id != 8 %}target="_blank"{% endif %} class="project-lien" {% if project.id == 8 %}data-open-model-viewer{% elseif project.id == 7 %}data-open-unity-game{% endif %}>
 					Voir le projet
 				</a>
 			</div>
@@ -47,4 +47,47 @@
 	<a href="projects.php" class="btn-back-project">
 		← Retour aux projets
 	</a>
+
+	{% if project.id == 7 %}
+		<div id="unity-game-modal" class="model-viewer-modal unity-game-modal" aria-hidden="true">
+			<div class="model-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="unity-game-title">
+				<div class="model-viewer-dialog-header">
+					<div class="unity-game-heading">
+						<img src="projects/game/isy/webgl/TemplateData/unity-logo-title-footer.png" alt="Unity">
+						<h2 id="unity-game-title">{{ project.titre }}</h2>
+					</div>
+					<div class="unity-game-actions">
+						<button type="button" class="unity-game-fullscreen" aria-label="Plein écran">
+							<i class="bi bi-fullscreen" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="model-viewer-close unity-game-close" aria-label="Fermer le jeu">&times;</button>
+					</div>
+				</div>
+				<div class="unity-game-wrapper">
+					<iframe
+						class="unity-game"
+						src="projects/game/isy/webgl/index.html"
+						title="Jeu I See You"
+						allow="fullscreen"
+						allowfullscreen
+					></iframe>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	{% if project.id == 8 %}
+		<div id="model-viewer-modal" class="model-viewer-modal" aria-hidden="true">
+			<div class="model-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="model-viewer-title">
+				<div class="model-viewer-dialog-header">
+					<h2 id="model-viewer-title">{{ project.titre }}</h2>
+					<button type="button" class="model-viewer-close" aria-label="Fermer le visualiseur">&times;</button>
+				</div>
+				<div class="model-viewer" data-model="projects/game/puit/Puit.fbx">
+					<canvas id="puit-viewer" aria-label="Visualiseur 3D du puits"></canvas>
+					<p class="model-viewer-status">Chargement du modèle 3D...</p>
+				</div>
+			</div>
+		</div>
+	{% endif %}
 {% endblock %}

@@ -6,11 +6,11 @@ $projects_web = [
         'titre' => 'Netflix',
         'desc_courte' => 'Un de mes premiers projets réalisé lors des cours du module WEB où j\'ai pu apprendres les fondamentaux du HTML/CSS et les mettre en pratique en réalisant une copie du site web Netflix.',
         'date' => 'Novembre 2024',
-        'lien' => 'projects/netflix/index.html',
+        'lien' => 'projects/dev/netflix/index.html',
         'photos' => [
-            'img/netflix/1.png',
-            'img/netflix/2.png',
-            'img/netflix/3.png',
+            'img/dev/netflix/1.png',
+            'img/dev/netflix/2.png',
+            'img/dev/netflix/3.png',
         ]
     ],
     [
@@ -18,13 +18,13 @@ $projects_web = [
         'titre' => 'YFNSM',
         'desc_courte' => 'Le premier devoir évalué du module WEB où le choix du sujet était libre, j\'ai donc choisi de créer un site web sur mon super héro préféré et son univers : Spider-Man. J\'y présente différents personnages, acteurs et films.',
         'date' => 'Janvier 2025',
-        'lien' => 'projects/spider/accueil.html',
+        'lien' => 'projects/dev/spider/accueil.html',
         'photos' => [
-            'img/yfnsm/1.png',
-            'img/yfnsm/2.png',
-            'img/yfnsm/3.png',
-            'img/yfnsm/4.png',
-            'img/yfnsm/5.png',
+            'img/dev/yfnsm/1.png',
+            'img/dev/yfnsm/2.png',
+            'img/dev/yfnsm/3.png',
+            'img/dev/yfnsm/4.png',
+            'img/dev/yfnsm/5.png',
         ]
     ],
     [
@@ -32,12 +32,12 @@ $projects_web = [
         'titre' => 'Formula Drift',
         'desc_courte' => 'Ma première SAE (Situation d\'Apprentissage et d\'évaluation) du S1 où l\'utilisation de PHP/TWIG et MySQL était obligatoire. J\'ai, cette fois-ci, choisi de le faire sur la Formula Drift, une compétition de drift automobile en présentant des équipes et leurs pilotes, des circuits et des voitures adaptées.',
         'date' => 'Février 2025',
-        'lien' => 'projects/formula/index_fr.php',
+        'lien' => 'projects/dev/formula/index_fr.php',
         'photos' => [
-            'img/formula/1.png',
-            'img/formula/2.png',
-            'img/formula/3.png',
-            'img/formula/4.png'
+            'img/dev/formula/1.png',
+            'img/dev/formula/2.png',
+            'img/dev/formula/3.png',
+            'img/dev/formula/4.png'
         ]
     ],
     [
@@ -45,16 +45,16 @@ $projects_web = [
         'titre' => '33 Tours',
         'desc_courte' => 'Deuxième SAE du S2, j\'ai décidé de faire un site web sur les vinyles avec différents artistes que j\'écoute régulièrement. J\'y ai intégré une base de données pour présenter une collection de vinyles, divers artistes et genres.',
         'date' => 'Mars 2025',
-        'lien' => 'projects/vinyle/index.php',
+        'lien' => 'projects/dev/vinyle/index.php',
         'photos' => [
-            'img/vinyle/1.png',
-            'img/vinyle/2.png',
-            'img/vinyle/3.png',
-            'img/vinyle/4.png',
-            'img/vinyle/5.png',
-            'img/vinyle/6.png',
-            'img/vinyle/7.png',
-            'img/vinyle/8.png',
+            'img/dev/vinyle/1.png',
+            'img/dev/vinyle/2.png',
+            'img/dev/vinyle/3.png',
+            'img/dev/vinyle/4.png',
+            'img/dev/vinyle/5.png',
+            'img/dev/vinyle/6.png',
+            'img/dev/vinyle/7.png',
+            'img/dev/vinyle/8.png',
         ]
     ],
     [
@@ -62,15 +62,15 @@ $projects_web = [
         'titre' => 'Archipelz',
         'desc_courte' => 'Dernière SAE de WEB du S4, j\'ai développé un site web sur les îles et archipels de la Polynésie française. Je me suis occupé de la partie front-end du projet en réalisant les maquettes et en intégrant les différentes pages du site tout en m\'inspirant de la direction artistique de Mario Sunshine.',
         'date' => 'Mars 2026',
-        'lien' => 'projects/archipelz/polynesie/templates/home.html.twig',
+        'lien' => 'projects/dev/archipelz/polynesie/templates/home.html.twig',
         'photos' => [
-            'img/archipelz/1.png',
-            'img/archipelz/2.png',
-            'img/archipelz/3.png',
-            'img/archipelz/4.png',
-            'img/archipelz/5.png',
-            'img/archipelz/6.png',
-            'img/archipelz/7.png',
+            'img/dev/archipelz/1.png',
+            'img/dev/archipelz/2.png',
+            'img/dev/archipelz/3.png',
+            'img/dev/archipelz/4.png',
+            'img/dev/archipelz/5.png',
+            'img/dev/archipelz/6.png',
+            'img/dev/archipelz/7.png',
         ]
     ],
     [
@@ -78,11 +78,11 @@ $projects_web = [
         'titre' => 'Snake',
         'desc_courte' => 'Un rendu pour le module GAME où j\'ai réalisé une version du jeu Snake, j\'y ai intégré le mode de jeu classique, ainsi qu\'un mode Time Attack et Tunnels.',
         'date' => 'Avril 2026',
-        'lien' => 'projects/snake/index.html',
+        'lien' => 'projects/dev/snake/index.html',
         'photos' => [
-            'img/snake/1.png',
-            'img/snake/2.png',
-            'img/snake/3.png',
+            'img/dev/snake/1.png',
+            'img/dev/snake/2.png',
+            'img/dev/snake/3.png',
         ]
     ],
 ];
@@ -91,13 +91,26 @@ $projects_game = [
     [
         'id' => 7,
         'titre' => 'I See You',
-        'desc_courte' => 'Mon premier projet où j\'ai conçu un jeu vidéo dans une équipe de 4 personnes. J\'ai pu modéliser l\'environnement de mon niveau et des items comme la lampe torche sur Blender, créer des scripts pour le fonctionnement de certaines actions et assembler le tout sur Unity.',
+        'desc_courte' => 'Mon premier projet où j\'ai conçu un jeu vidéo avec 3 camarades. J\'ai pu modéliser l\'environnement de mon niveau et des items comme la lampe torche sur Blender, créer des scripts pour le fonctionnement de certaines actions et assembler le tout sur Unity.',
         'date' => 'Avril 2026',
-        'lien' => 'projects/netflix/isy/#',
+        'lien' => [
+            'projects/game/isy/webgl/index.html',
+            'projects/game/isy/fbx/',
+        ],
         'photos' => [
             'img/isy/1.png',
             'img/isy/2.png',
             'img/isy/3.png',
+        ]
+    ],
+    [
+        'id' => 8,
+        'titre' => 'Puit Low-Poly',
+        'desc_courte' => 'Ce puit Low-Poly est mon premier objet 3D créé de A à Z via l\'aide d\'un tutoriel de la chaîne Grant Abbitt (Gabbitt). Grâce à celui-ci, j\'ai pu perfectionné mes acquis et en apprendre plus sur le logiciel Blender commme le shading des différents élements.',
+        'date' => 'Juillet 2026',
+        'lien' => 'projects/game/puit/#',
+        'photos' => [
+            'img/game/puit/puit.png',
         ]
     ],
 ];

@@ -187,8 +187,61 @@ li {
 
 /* HOME */
 
-.presentation {
+.first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 70px;
+}
+
+/* .presentation {} */
+
+.skill-carousel {
+  width: 50%;
+
+  display: flex;
+  border: #7351aa 2px solid;
+  border-radius: 5px;
+
+  overflow-x: auto;
+}
+
+.skill-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.skill-group {
+  display: flex;
+
+  align-items: center;
+  gap: 5px;
+
+
+  animation: spin 5s infinite linear;
+}
+
+.skill {
+  height: 5em;
+  padding: 1em;
+
+  text-align: center;
+  align-content: center;
+
+  flex: 0 0 5em;
+
+  font-size: 2em;
+  background-color: #a559c0;
+  border-radius: 7px;
+}
+
+@keyframes spin {
+  from {
+    translate: 0;
+  }
+
+  to {
+    translate: -100%;
+  }
 }
 
 .container {
@@ -290,6 +343,191 @@ li {
   object-position: center;
   border-radius: 15px;
   background-color: rgb(32, 32, 32);
+}
+
+/* FBX Models Viewer Window */
+
+.model-viewer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin-top: 30px;
+  overflow: hidden;
+  border: var(--primary) solid 3px;
+  border-radius: 15px;
+  background: rgb(32, 32, 32);
+}
+
+.model-viewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.model-viewer-status {
+  position: absolute;
+  inset: 50% 20px auto;
+  margin: 0;
+  color: white;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.model-viewer.is-ready .model-viewer-status {
+  display: none;
+}
+
+.model-viewer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3vw;
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.model-viewer-modal.is-open {
+  display: flex;
+}
+
+.model-viewer-dialog {
+  position: relative;
+  width: min(96vw, 1450px);
+  height: min(92vh, 900px);
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  border-radius: 15px;
+  background: rgb(29, 29, 29);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.55);
+}
+
+.model-viewer-dialog-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: none;
+  pointer-events: none;
+}
+
+.model-viewer-dialog-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 120px;
+  z-index: 0;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.72) 55%,
+      transparent 100%);
+  pointer-events: none;
+}
+
+.model-viewer-dialog-header>* {
+  position: relative;
+  z-index: 1;
+}
+
+.model-viewer-close {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  color: white;
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.model-viewer-close:hover {
+  background: var(--primary);
+}
+
+.unity-game-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.unity-game-heading img {
+  width: 102px;
+  height: 38px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.unity-game-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.unity-game-fullscreen {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.unity-game-fullscreen i {
+  display: block;
+  line-height: 1;
+}
+
+.unity-game-fullscreen:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.model-viewer-modal .model-viewer {
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+body.model-viewer-modal-open {
+  overflow: hidden;
+}
+
+/* WEBGL Games Viewer  */
+
+.unity-game-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+}
+
+.unity-game {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .autres-projects {
@@ -552,6 +790,10 @@ li {
     object-position: center;
     border-radius: 15px;
     background-color: rgb(32, 32, 32);
+  }
+
+  .model-viewer {
+    height: 600px;
   }
 
   .description {
