@@ -15,7 +15,7 @@ window.markersData = {{ markers|map(m => {
     })|json_encode|raw }};
 	</script>
 	<script src="{{ asset('js/map_details.js') }}" defer></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKefB-llhthKebD0v2gGePgLF3fh1n1WE&callback=initMap"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=here&callback=initMap"></script>
 {% endblock %}
 
 {% block body %}
