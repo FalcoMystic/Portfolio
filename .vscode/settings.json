@@ -1,8 +1,0 @@
-{
-    "chat.tools.terminal.autoApprove": {
-        "/^printf '%s\\\\n' '--- audio loader ---'; rg -o -U '\\.\\{0,180\\}\\(decodeAudioData\\|audioPlugin\\\\\\[\"handle\"\\\\\\]\\)\\.\\{0,500\\}' projects/game/isy/webgl/Build/ISY_Build\\.framework\\.js \\| head -c 5000; printf '%s\\\\n' '--- build files ---'; find projects/game/isy/webgl -maxdepth 3 -type f -printf '%p %s bytes\\\\n' \\| sort$/": {
-            "approve": true,
-            "matchCommandLine": true
-        }
-    }
-}

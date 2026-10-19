@@ -97,11 +97,11 @@ $projects_game = [
             'projects/game/isy/webgl/index.html',
             'projects/game/isy/fbx/',
         ],
-        'photos' => [
-            'img/isy/1.png',
-            'img/isy/2.png',
-            'img/isy/3.png',
-        ]
+        // 'photos' => [
+        //     'img/isy/1.png',
+        //     'img/isy/2.png',
+        //     'img/isy/3.png',
+        // ]
     ],
     [
         'id' => 8,

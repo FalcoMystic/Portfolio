@@ -554,24 +554,32 @@ body.model-viewer-modal-open {
 
 .picture {
   display: flex;
-
-  width: 85%;
+  width: 100%;
   height: auto;
+  box-sizing: border-box;
+  vertical-align: top;
   border-radius: 1.5rem;
   border: var(--primary) solid 4px;
 }
 
 .container-name {
-  position: relative;
+  max-width: 100%;
+  min-width: 0;
   text-align: center;
-
   margin: 50px 0 100px;
+}
+
+.picture-wrapper {
+  position: relative;
+  width: min(100%, 650px);
+  max-width: 100%;
 }
 
 .name-about {
   position: absolute;
-  top: 275px;
-  left: 100px;
+  right: -10%;
+  bottom: -4%;
+  z-index: 1;
 
   background-color: var(--primary);
   border: white 4px solid;
@@ -815,22 +823,32 @@ body.model-viewer-modal-open {
 
   .picture {
     display: flex;
-    width: 80%;
+    width: 100%;
     height: auto;
+    box-sizing: border-box;
+    vertical-align: top;
     border-radius: 1.5rem;
     border: var(--primary) solid 4px;
   }
 
   .container-name {
-    position: relative;
+    max-width: 100%;
+    min-width: 0;
     text-align: center;
     margin: 50px 0 100px;
   }
 
+  .picture-wrapper {
+    position: relative;
+    width: min(100%, 650px);
+    max-width: 100%;
+  }
+
   .name-about {
     position: absolute;
-    top: 580px;
-    left: 280px;
+    right: -10%;
+    bottom: -4%;
+    z-index: 1;
 
     background-color: var(--primary);
     border: white 4px solid;
